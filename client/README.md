@@ -2,10 +2,12 @@
 
 ## Install
 
-yarn
 npm install
 
 ## Start
 
-yarn dev
 npm run dev
+
+## End to end test
+
+npm run cypress:open

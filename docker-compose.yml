@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+
+  api:
+    image: serverimage:latest
+    ports:
+      - "4000:4000"
+
+  react-app:
+    image: reactimage:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api

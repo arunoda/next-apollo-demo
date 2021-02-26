@@ -15,10 +15,7 @@ const app = express();
 // to access graphql API from the client side
 app.use(cors())
 
-server.applyMiddleware({app});
-
-const port = process.env.PORT || 3000
-
+const port = process.env.PORT || 4000
 app.listen(port, (err) => {
   if (err) throw err
   console.log(`Graphql Server started on: http://localhost:${port}`)

@@ -11,4 +11,4 @@ const Page = () => (
   </div>
 )
 
-export default WithApollo(Page)
+export default WithApollo({ssr:true})(Page)

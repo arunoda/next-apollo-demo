@@ -1,10 +1,9 @@
-import { withData } from 'next-apollo'
-import { HttpLink } from 'apollo-link-http'
+import { withApollo } from 'next-apollo'
+import { ApolloClient,InMemoryCache } from '@apollo/client'
 
-const apolloConfig = {
-  link: new HttpLink({
-    uri: 'https://faker-graphql.now.sh/graphql'
-  })
-}
+const apolloConfig = new ApolloClient({
+    uri: process.env.API_BASE_URL || 'http://localhost:4000/graphql',
+    cache: new InMemoryCache()
+});
 
-export default withData(apolloConfig)
+export default withApollo(apolloConfig);

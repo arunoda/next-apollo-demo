@@ -8,7 +8,8 @@ const typeDefs = gql`
         email: String!
     }
     type Query {
-        contacts(limit:Int,offset:Int):[Contact!]!
+        contacts(limit:Int!,offset:Int!):[Contact!]!
+        name: String!
     }
 `;
 

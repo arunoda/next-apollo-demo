@@ -16,6 +16,7 @@ const Contacts = ({ limit }: Props) => {
             offset: 0
         }
     })
+
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }

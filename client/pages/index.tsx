@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import WithApollo from '../lib/with-apollo'
 import Name from '../components/Name'
 
 const Page = () => (
@@ -8,8 +7,8 @@ const Page = () => (
     <br /><br />
     <Link href="/about"><a>About</a></Link>
     <br />
-    <Link href="/contacts"><a>Contacts</a></Link>
+    <Link href="/contact"><a>Contact</a></Link>
   </div>
 )
 
-export default WithApollo({ ssr: true })(Page)
+export default Page;

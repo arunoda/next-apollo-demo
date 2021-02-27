@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component display Header it should match snapshot 1`] = `
+<div>
+  <div
+    class="Header__HeaderContainer-sc-150phg5-0 fDQNNS"
+  >
+    <h2
+      class="Header__HeaderBrand-sc-150phg5-1"
+    >
+      Next Apollo Demo
+    </h2>
+    <div
+      class="Header__HeaderLinks-sc-150phg5-2 pKijZ"
+    >
+      <a
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        href="/about"
+      >
+        About
+      </a>
+      <a
+        href="/contact"
+      >
+        Contact
+      </a>
+    </div>
+  </div>
+</div>
+`;

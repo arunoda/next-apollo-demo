@@ -37,7 +37,7 @@ const HeaderContainer = styled.div`
     padding: 1rem 1rem;
     z-index: 50;
 `
-const HeaderBrand = styled.div`
+const HeaderBrand = styled.h2`
 
 `;
 

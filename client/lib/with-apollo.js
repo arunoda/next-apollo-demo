@@ -6,4 +6,4 @@ const apolloConfig = new ApolloClient({
     cache: new InMemoryCache()
 });
 
-export default withApollo(apolloConfig);
+export default apolloConfig;

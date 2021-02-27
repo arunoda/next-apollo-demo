@@ -3,19 +3,22 @@
   "version": "1.1.0",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
-    "gen":"graphql-codegen --config codegen.yml"
+    "gen": "graphql-codegen --config codegen.yml"
   },
   "license": "MIT",
   "dependencies": {
     "@apollo/client": "^3.3.11",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "graphql": "^15.5.0",
     "next": "^10.0.7",
     "next-apollo": "^5.0.4",
     "react": "^17.0.1",
     "react-apollo": "^4.0.0-beta.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.21.1",
@@ -25,6 +28,8 @@
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
+    "@types/styled-components": "^5.1.7",
+    "babel-plugin-styled-components": "^1.12.0",
     "typescript": "^4.2.2"
   }
 }

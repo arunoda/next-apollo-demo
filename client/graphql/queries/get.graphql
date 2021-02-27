@@ -6,3 +6,6 @@ query Contacts($limit:Int!,$offset:Int!){
         email
     }
 }
+query Name {
+    name
+}

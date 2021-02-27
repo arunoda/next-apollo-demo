@@ -1,10 +1,11 @@
 FROM node:12.2.0-alpine
-
 WORKDIR /usr/app
-
-COPY package.json yarn.lock /usr/app/
+COPY package.json /usr/app
 RUN yarn install --production
-COPY . /usr/app
+COPY . .
 
-CMD ["yarn","start"]
+RUN yarn global add nodemon
+
+
+CMD ["yarn","start:dev"]
 

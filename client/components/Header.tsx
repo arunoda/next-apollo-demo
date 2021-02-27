@@ -38,7 +38,9 @@ const HeaderContainer = styled.div`
     z-index: 50;
 `
 const HeaderBrand = styled.h2`
-
+ @media (max-width: 650px) {
+       font-size:10px;
+    }
 `;
 
 const HeaderLinks = styled.div`

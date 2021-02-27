@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node server",
-    "start:dev": "nodemon server"
+    "start:dev": "nodemon server --ignore 'data'"
   },
   "dependencies": {
     "apollo-server-express": "^2.21.0",

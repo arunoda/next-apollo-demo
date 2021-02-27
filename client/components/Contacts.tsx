@@ -39,7 +39,7 @@ const Contacts = ({ limit }: Props) => {
                                 <Button variant="outlined" color="primary" disabled={!hasMore} onClick={() => {
                                     fetchMore({
                                         variables: {
-                                            limit: 20,
+                                            limit: limit,
                                             offset: data!.contacts.length
                                         },
                                         updateQuery: (previousResult: any, { fetchMoreResult }: any) => {

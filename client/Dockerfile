@@ -8,6 +8,4 @@ COPY . /app
 
 RUN yarn build
 
-ENV PORT 7000
-
 CMD yarn start:prod

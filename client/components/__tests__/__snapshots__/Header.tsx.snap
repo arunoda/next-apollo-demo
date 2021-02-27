@@ -6,7 +6,7 @@ exports[`Header Component display Header it should match snapshot 1`] = `
     class="Header__HeaderContainer-sc-150phg5-0 fDQNNS"
   >
     <h2
-      class="Header__HeaderBrand-sc-150phg5-1"
+      class="Header__HeaderBrand-sc-150phg5-1 eHzWZO"
     >
       Next Apollo Demo
     </h2>

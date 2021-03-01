@@ -1,8 +1,8 @@
 import React from 'react';
-import {useNameQuery} from '../generated/graphql'
+import {useNameQuery} from '../generated/graphql';
 
 const Name = () => {
-  const {loading,error,data}=useNameQuery();
+  const {loading,error,data}:any=useNameQuery();
   return(
     <span>
       {loading? '...loading' : error ? 'oops! Something went wrong!!' :
@@ -11,4 +11,4 @@ const Name = () => {
   )
 }
 
-export default Name
+export default Name;

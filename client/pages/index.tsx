@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import Name from '../components/Name'
+import Link from 'next/link';
+import Name from '../components/Name';
 
 const Page = () => (
   <div>

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import dynamic from 'next/dynamic';
 
 const About = () => (
   <div>
@@ -8,4 +9,4 @@ const About = () => (
   </div>
 )
 
-export default About;
+export default dynamic(() => Promise.resolve(About), { ssr: false });

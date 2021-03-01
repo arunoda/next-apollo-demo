@@ -2,14 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Avatar } from '@material-ui/core'
 import { HomeOutlined, PhoneIphoneOutlined, EmailOutlined } from '@material-ui/icons'
+import { Contact } from '../generated/graphql';
 
 interface Props {
-    data: {
-        name: String
-        email: String
-        phone: String
-        address: String
-    }
+    data: Contact
 }
 
 const Card = ({ data }: Props) => {

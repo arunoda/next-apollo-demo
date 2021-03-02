@@ -6,3 +6,6 @@
 
 ### Steps to deploy to heroku
     * sh deploy.sh
+
+### To update the graphql basetype operations using schema in client
+    * run yarn gen

@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import styled from 'styled-components';
 import Contacts from '../components/Contacts';
 import { useContactsQuery } from '../generated/graphql'
-
+import ScrollToTop from '../components/ScrollToTop';
 
 const limit = 20;
 
@@ -36,17 +36,21 @@ const Contact = () => {
         })
     }
     return (
-        <ContactContainer>
-            <h2>Contacts</h2>
-            {
-                loading ? <MessageContainer>...loading</MessageContainer> :
-                    error ? <MessageContainer>Oops Something went wrong :(</MessageContainer> :
-                        (<><Contacts data={data} />
-                            <BottomContainer>
-                                <Button variant="outlined" color="primary" disabled={!hasMore} onClick={fetchMoreData}>Show More</Button>
-                            </BottomContainer></>
-                        )}
-        </ContactContainer>
+        <ScrollToTop>
+            <ContactContainer>
+                <h2>Contacts</h2>
+                {
+                    loading ? <MessageContainer>...loading</MessageContainer> :
+                        error ? <MessageContainer>Oops Something went wrong :(</MessageContainer> :
+                            (<>
+                                <Contacts data={data} />
+                                <BottomContainer>
+                                    <Button variant="outlined" color="primary" disabled={!hasMore} onClick={fetchMoreData}>Show More</Button>
+                                </BottomContainer>
+                            </>
+                            )}
+            </ContactContainer>
+        </ScrollToTop>
     )
 }
 

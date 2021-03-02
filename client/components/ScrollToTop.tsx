@@ -8,7 +8,8 @@ const ScrollToTop: React.FC = (props) => {
 
     useEffect(() => {
         window.innerHeight < myref.current!.scrollHeight ? setShow(true) : setShow(false)
-    })
+    },[props])
+
     const scrollTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }

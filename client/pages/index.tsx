@@ -7,7 +7,7 @@ const Page = () => (
     <br /><br />
     <Link href="/about"><a>About</a></Link>
     <br />
-    <Link href="/contact"><a>Contact</a></Link>
+    <Link href="/contacts"><a>Contacts</a></Link>
   </div>
 )
 

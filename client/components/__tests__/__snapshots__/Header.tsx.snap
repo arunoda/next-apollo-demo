@@ -24,9 +24,9 @@ exports[`Header Component display Header it should match snapshot 1`] = `
         About
       </a>
       <a
-        href="/contact"
+        href="/contacts"
       >
-        Contact
+        Contacts
       </a>
     </div>
   </div>

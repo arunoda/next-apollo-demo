@@ -4,16 +4,14 @@ import styled from 'styled-components';
 import { Contact } from '../generated/graphql'
 
 type Props = {
-    data: {
-        contacts: [Contact]
-    }
+        contacts: Contact[] | null
 }
-const Contacts = ({ data }: Props) => {
+const ContactsGroup = ({ contacts }: Props) => {
     return (
         <>
             <ContactsContainer>
                 {
-                    data!.contacts.map((contact, id) => (
+                    contacts!.map((contact, id) => (
                         <Card data={contact} key={id} />
                     ))
                 }
@@ -41,4 +39,4 @@ const ContactsContainer = styled.div`
     }
 `
 
-export default Contacts
+export default ContactsGroup;

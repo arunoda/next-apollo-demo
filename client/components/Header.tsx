@@ -5,9 +5,9 @@ import Link from 'next/link'
 const links = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' }
+    { label: 'Contacts', href: '/contacts' }
 ]
-
+    
 const Header = () => {
     return (
         <HeaderContainer>

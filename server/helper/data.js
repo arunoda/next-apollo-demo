@@ -4,6 +4,7 @@ const path = require('path');
 
 const dataCount = 2000;
 const fileName = 'data.json';
+let fileData;
 
 casual.define('contact',function(){
     return {
@@ -24,11 +25,12 @@ const generateData = count =>{
 
 const writeToFile = (data,fileName)=>fs.writeFileSync(path.join(process.cwd(),'data',fileName),JSON.stringify(data))
 
-const readData =() =>fs.readFileSync(path.join(process.cwd(),'data',fileName));
+const readData =() => fileData || JSON.parse(fs.readFileSync(path.join(process.cwd(),'data',fileName)));
 
 const generateAndSave = () =>{
     const data= generateData(dataCount);
     writeToFile(data,fileName);
+    fileData=readData();
 }
 
 module.exports ={

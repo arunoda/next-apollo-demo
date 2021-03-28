@@ -2,7 +2,7 @@ import styles from './UserCard.module.css';
 
 const UserCard = ({firstname, lastname, address, email, phone}) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} data-testid="user-card">
       <div className={styles.cardBody}>
         <div className={styles.cardTitle}>
           <p>

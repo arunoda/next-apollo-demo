@@ -1,14 +1,24 @@
-import Link from 'next/link'
-import WithApollo from '../lib/with-apollo'
-import Name from '../components/Name'
+import Head from 'next/head';
+import Link from 'next/link';
 
-const Page = () => (
-  <div>
-    Welcome, <Name />
-    <br/><br/>
-    <Link href="/about"><a>About</a></Link>
+import Layout from '../components/Layout';
 
-  </div>
-)
+const Home = () => {
+  return (
+    <>
+      <Head>
+        <title>NextGraphQlApollo | Home</title>
+      </Head>
 
-export default WithApollo(Page)
+      <Layout>
+        <h1>Home</h1>
+
+        <div>
+          <Link href="/users">Go to user details</Link>
+        </div>
+      </Layout>
+    </>
+  );
+};
+
+export default Home;

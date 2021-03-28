@@ -1,0 +1,40 @@
+.skipToContent {
+  background-color: var(--white);
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin: 0;
+  padding: 16px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 9999;
+}
+
+.skipToContent:focus,
+.skipToContent:active {
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+
+  display: block;
+  padding: 1.5rem;
+  background: var(--black);
+  text-align: center;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.3.13",
-    "@loadable/component": "^5.14.1",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.5.0",
     "identity-obj-proxy": "^3.0.0",

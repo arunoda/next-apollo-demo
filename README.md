@@ -18,14 +18,18 @@ npm run build or yarn build
 
 ### Start Apollo server
 
+Navigate to /server
+
 ```
 yarn start
 ```
 
 ### Start Client front-end app
 
+Navigate to /client
+
 ```
-yarn dev
+yarn start
 ```
 
 ## Test the client

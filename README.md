@@ -52,3 +52,9 @@ yarn --updateSnapshot
 ### Client front-end app:
 
 `http://localhost:4000`,
+
+### run Cypress for end-to-end testing
+
+```
+yarn cy:open or npm run cy:open
+```

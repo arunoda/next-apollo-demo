@@ -1,0 +1,10 @@
+.btn {
+    background: var(--black);
+    border-radius: 4px;
+    border: none;
+    color: var(--offWhite);
+    cursor: pointer;
+    line-height: 1.75em;
+    padding: 0.55em 1em;
+    text-transform: uppercase;
+}

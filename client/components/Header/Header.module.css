@@ -1,0 +1,32 @@
+.header {
+  color: var(--grey);
+  background: var(--white);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.wrapper {
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 40px;
+}
+
+.navbar {
+  display: flex;
+  list-style: none;
+}
+
+.navItem {
+  padding: 20px 0;
+  text-transform: uppercase;
+  min-width: 100px;
+}

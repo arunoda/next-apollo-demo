@@ -1,0 +1,36 @@
+.card {
+    display: flex;
+    flex-grow: 1;
+
+    margin-bottom: 1em;
+    background-color: var(--white);
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .card {
+        margin-right: 1rem;
+        width: 30%;
+    }
+}
+
+.cardBody {
+    flex: 1;
+    padding: 1.25rem;
+}
+
+.cardTitle {
+    color: var(--grey);
+    font-family: Georgia, Times New Roman, Times, serif;
+    font-size: 1.25em;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.cardMeta {
+    font-size: 14px;
+}
+
+.email {
+    color: var(--blue);
+}

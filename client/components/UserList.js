@@ -22,15 +22,19 @@ const GET_ITEMS = gql`
 
 const UserList = () => {
   const {data, loading, error} = useQuery(GET_ITEMS);
-  const [state, setState] = useState();
+  const [loadMore, setLoadMore] = useState(0);
 
   if (loading) return <h2>Loading...</h2>;
   if (error) return `Error! ${error.message}`;
 
+  const PER_PAGE = 20;
   const fetchMoreData = () => {
-    setState(data.users);
+    const nextPage = loadMore + PER_PAGE;
 
-    console.log('load 10 more:::', data.users);
+    setLoadMore(nextPage);
+
+    // console.log('users:::', data.users);
+    console.log('load 20 more:::', nextPage);
   };
 
   const userList = data.users

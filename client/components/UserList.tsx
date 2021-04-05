@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, FunctionComponent} from 'react';
 import {gql, useQuery} from '@apollo/client';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import styled from 'styled-components';
 
 import Grid from './Grid';
 import UserCard from './UserCard';
-import Button from '../components/Button';
+import Button from './Button';
 
 const GET_ITEMS = gql`
   query GET_USER_DETAILS {
@@ -20,7 +20,11 @@ const GET_ITEMS = gql`
   }
 `;
 
-const UserList = () => {
+type TabIndexProp = {
+  tabIndex?: number // optional prop
+}
+
+const UserList: FunctionComponent<TabIndexProp>  = () => {
   const {data, loading, error} = useQuery(GET_ITEMS);
   const [loadMore, setLoadMore] = useState(0);
 
@@ -39,17 +43,20 @@ const UserList = () => {
 
   const userList = data.users
     .slice(0, 8)
-    .map((user) => (
-      <UserCard
-        key={user.id}
-        firstname={user.firstname}
-        lastname={user.lastname}
-        address={user.address}
-        email={user.email}
-        phone={user.phone}
-      />
-    ));
-
+    .map((user) => {
+      return (
+        <UserCard
+          key={user.id}
+          firstname={user.firstname}
+          lastname={user.lastname}
+          address={user.address}
+          email={user.email}
+          phone={user.phone}
+          />
+      )
+    })
+      
+   
   return (
     <InfiniteScroll
       dataLength={data.users.length} // Render the next data

@@ -1,9 +1,11 @@
 import styles from './Button.module.css';
 import PropTypes from 'prop-types';
 
-export default function Button({children, onClick}) {
+
+
+export default function Button({ children, onClick }) {
   return (
-    <button onClick={onClick} className={styles.btn} type="button" tabIndex="0">
+    <button onClick={onClick} className={styles.btn} type="button" tabIndex={0}>
       {children}
     </button>
   );

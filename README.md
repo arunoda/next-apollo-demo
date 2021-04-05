@@ -41,7 +41,7 @@ npm test or yarn test
 ### Update snapshots
 
 ```
-yarn test -- -u
+yarn test -u
 yarn --updateSnapshot
 ```
 

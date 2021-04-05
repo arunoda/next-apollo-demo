@@ -1,9 +1,9 @@
 import {render} from '@testing-library/react';
-import UserCard from '../components/UserCard';
+import Users from '../pages/users';
 
-describe('UserCard  component', () => {
+describe('Users  component', () => {
   test('Renders correctly', () => {
-    const {getByTestId} = render(<UserCard />);
-    expect(getByTestId('user-card')).toBeInTheDocument();
+    render(<Users />);
+    expect(Users).toBeTruthy();
   });
 });

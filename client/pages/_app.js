@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
 
 const client = new ApolloClient({
   // this is the server uri
-  uri: 'http://localhost:4000',
+  uri: 'http://localhost:4000/graphql',
   cache: new InMemoryCache(),
 });
 

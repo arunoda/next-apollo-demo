@@ -1,20 +1,82 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const { graphqlExpress, graphiqlExpress } = require('apollo-server-express')
-const myGraphQLSchema = require('./schema')
+const {ApolloServer, gql} = require('apollo-server');
+const casual = require('casual');
 
-const app = express();
-
-// to access graphql API from the client side
-app.use(cors())
-// bodyParser is needed just for POST.
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: myGraphQLSchema }));
-// for the graphiql interface
-app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
-
-const port = process.env.PORT || 5000
-app.listen(port, (err) => {
-  if (err) throw err
-  console.log(`Graphql Server started on: http://localhost:${port}`)
+const typeDefs = gql`
+type user {
+  id: ID,
+  lastName: String,
+  firstName: String,
+  address: String,
+  email: String,
+  phone: String
+}
+type userEdge {
+  cursor: ID!,
+  node: user!,
+}
+type userConnection {
+  edges: [userEdge]
+  pageInfo: PageInfo
+}
+type PageInfo {
+  endCursor: ID!,
+  hasNextPage: Boolean!,
+}
+type Query {
+  users(first: Int!, cursor: ID): userConnection
+}
+`
+casual.define('user', function (id) {
+  return {
+    id,
+    firstName: casual.first_name,
+    lastName: casual.last_name,
+    address: casual.address,
+    email: casual.email,
+    phone: casual.phone,
+  }
 })
+
+const usersRecords = function(userCount) {
+  const result = [];
+
+  for (var i = 0; i < userCount; ++i) {
+      result.push(casual.user(i));
+  }
+
+  return result;
+};
+
+
+const resolvers = {
+  Query: {
+    users: (query, { cursor, first }) => {
+      const users =  usersRecords(20);
+       
+      const cursorIndex = !cursor ? 0 : users.findIndex(user => user.id === cursor) + 1
+      const sliceOfusers = users.slice(cursorIndex, cursorIndex + first)
+
+      return {
+        edges: sliceOfusers.map(user => ({ cursor: user.id, node: { ...user } })),
+        pageInfo: {
+          endCursor: sliceOfusers[sliceOfusers.length - 1].id,
+          hasNextPage: cursorIndex + first < users.length,
+        },
+      }
+    },
+  },
+}
+
+
+// ApolloServer
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  playground: true,
+  introspection: true,
+});
+
+// Server
+server.listen({port: process.env.PORT || 4000}).then(({url}) => {
+  console.log(`Backend Server started on ${url}`);
+});

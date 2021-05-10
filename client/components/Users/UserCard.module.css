@@ -1,0 +1,39 @@
+.userCard {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: 1%;
+    border: 1px solid  #ddd;
+    border-bottom: 3px solid darkslateblue;
+    box-shadow: 5px 10px rgb(240, 239, 239);
+    border-radius: 0.55rem;
+    min-width: 250px;   
+}
+
+.userName {
+    color:darkslateblue;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: lightsteelblue;
+}
+
+.logo{
+  margin:10px;
+}
+
+.userEmail {
+    color: #008eff;
+}
+
+.userAddress {
+   display: flex;
+   flex-wrap: nowrap;
+}
+.userAddressText{
+    align-self: center;
+}
+@media (max-width: 760px) {
+    .userCard {
+        width: 250px;
+    }
+} 

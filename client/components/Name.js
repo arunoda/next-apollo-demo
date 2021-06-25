@@ -1,5 +1,6 @@
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
+import React from 'react';
+import { graphql } from '@apollo/client/react/hoc';
+import { gql } from '@apollo/client'
 
 const Component = ({ data }) => (
   <span>

@@ -5,7 +5,7 @@ import Name from '../components/Name'
 
 const Page = () => (
   <div>
-    Welcome, <Name />
+    Welcome, <Name/>
     <br/><br/>
     <Link href="/about"><a>About</a></Link>
 

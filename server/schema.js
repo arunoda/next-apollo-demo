@@ -1,11 +1,11 @@
-const {
+import {
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
-} = require("graphql");
-const faker = require("faker");
+}  from "graphql";
+import faker  from "faker";
 
-module.exports = new GraphQLSchema({
+export default new GraphQLSchema({
   query: new GraphQLObjectType({
     name: "RootQueryType",
     fields: {

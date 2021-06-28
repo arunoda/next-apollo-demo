@@ -1,8 +1,8 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const { graphqlExpress, graphiqlExpress } = require("apollo-server-express");
-const myGraphQLSchema = require("./schema");
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import { graphqlExpress, graphiqlExpress }  from "apollo-server-express";
+import myGraphQLSchema  from "./schema.js";
 
 const app = express();
 

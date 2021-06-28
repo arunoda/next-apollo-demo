@@ -1,20 +1,20 @@
 {
-  "name": "faker-graphql",
-  "version": "1.0.0",
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "start": "node server"
-  },
-  "dependencies": {
-    "apollo-server-express": "1.4.0",
-    "body-parser": "1.19.0",
-    "cors": "2.8.5",
-    "express": "4.17.1",
-    "faker": "5.5.3",
-    "graphql": "15.5.1"
-  },
-  "devDependencies": {
-    "prettier": "2.3.1"
-  }
+    "name": "faker-graphql",
+    "version": "1.0.0",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "start": "node server"
+    },
+    "dependencies": {
+        "apollo-server-express": "1.4.0",
+        "body-parser": "1.19.0",
+        "cors": "2.8.5",
+        "express": "4.17.1",
+        "faker": "5.5.3",
+        "graphql": "15.5.1"
+    },
+    "devDependencies": {
+        "prettier": "2.3.1"
+    }
 }

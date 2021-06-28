@@ -11,6 +11,11 @@ const Page = () => (
         <Link href="/about">
             <a>About</a>
         </Link>
+        <br />
+        <br />
+        <Link href="/users">
+            <a>Users list</a>
+        </Link>
     </div>
 );
 

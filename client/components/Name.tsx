@@ -5,7 +5,7 @@ type Response = {
     name: string;
 };
 
-const Component = () => {
+const Name = () => {
     const { data, loading } = useQuery<Response>(query);
 
     return <span>{loading ? ".." : data?.name}</span>;
@@ -17,4 +17,4 @@ const query = gql`
     }
 `;
 
-export default Component;
+export default Name;

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import UsersTable from "../components/UsersTable";
+import UsersTable from "../components/UsersTable/UsersTable";
 import WithApollo from "../lib/with-apollo";
 
 const Users = () => (

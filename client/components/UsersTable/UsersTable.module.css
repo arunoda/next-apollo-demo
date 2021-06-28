@@ -1,0 +1,16 @@
+.users-table {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(5, 1fr);
+
+}
+@media (max-width: 1024px) {
+    .users-table {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 360px) {
+    .users-table {
+        grid-template-columns: auto;
+    }
+}

@@ -1,21 +1,18 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
+import { UserCard } from "./UserCard";
+import styles from "./UsersTable.module.css"
 
 const UsersTable = () => {
     const { data, loading } = useQuery<Response>(query);
 
     return (
-        <div>
+        <div className={styles["users-table"]}>
             {loading ? (
                 <>loading...</>
             ) : (
-                data.users?.map((user) => (
-                    <div>
-                        <span>{user.name}</span>
-                        <span>{user.address}</span>
-                        <span>{user.phone}</span>
-                        <span>{user.address}</span>
-                    </div>
+                data.users.map((user, index) => (
+                    <UserCard user={user} key={index} />
                 ))
             )}
         </div>
@@ -28,18 +25,18 @@ type Response = {
         phone: string;
         email: string;
         address: string;
-    }>
+    }>;
 };
 
 const query = gql`
-query users {
-  users {
-    name
-    phone
-    email
-    address
-  }
-}
+    query users {
+        users {
+            name
+            phone
+            email
+            address
+        }
+    }
 `;
 
 export default UsersTable;

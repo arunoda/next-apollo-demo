@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import UsersTable from "../components/UsersTable/UsersTable";
+import UsersTableWithSearch from "../components/Users/UsersTableWithSearch";
 import WithApollo from "../lib/with-apollo";
 
 const Users = () => (
     <div>
-        <UsersTable />
+        <UsersTableWithSearch />
         <Link href="/">
             <a>Go Back</a>
         </Link>

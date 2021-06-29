@@ -1,7 +1,7 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import styles from "./UsersTableWithSearch.module.css";
-import { TextField } from "@material-ui/core";
+import { TextField, Typography } from "@material-ui/core";
 import { debounce } from "../../utils";
 import { UsersTable } from "./UsersTable";
 import { user } from "./Types";
@@ -12,21 +12,28 @@ const UsersTableWithSearch = () => {
 
     return (
         <div>
-            <TextField
-                label="search user"
-                variant="outlined"
-                onChange={(e) => {
-                    const debouncedSearch = debounce(setFilteredData, 300);
-                    debouncedSearch(
-                        data.users.filter((user) =>
-                            user.name
-                                .toLocaleLowerCase()
-                                .includes(e.target.value.toLocaleLowerCase()),
-                        ),
-                    );
-                }}
-            />
-            <div className={styles["users-table"]}>
+            <div className={styles["users-search"]}>
+                <TextField
+                    label="search user"
+                    variant="outlined"
+                    onChange={(e) => {
+                        const debouncedSearch = debounce(setFilteredData, 300);
+                        debouncedSearch(
+                            data.users.filter((user) =>
+                                user.name
+                                    .toLocaleLowerCase()
+                                    .includes(
+                                        e.target.value.toLocaleLowerCase(),
+                                    ),
+                            ),
+                        );
+                    }}
+                />
+                {filteredData && (
+                    <Typography>{filteredData.length} users</Typography>
+                )}
+            </div>
+            <div>
                 {loading ? (
                     <>loading...</>
                 ) : (

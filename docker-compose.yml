@@ -1,0 +1,22 @@
+version: "3"
+services:
+  frontend:
+    image: next-apollo
+    build:
+      context: client
+      dockerfile: dockerfile
+      args:
+        - API_URL=http://localhost:${SERVER_PORT}/${API_PATH}
+    environment:
+      - PORT=${CLIENT_PORT}
+
+    ports:
+      - "${CLIENT_PORT}:${CLIENT_PORT}"
+
+  backend:
+    image: graphql-node
+    build: server
+    environment:
+      - PORT=${SERVER_PORT}
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"

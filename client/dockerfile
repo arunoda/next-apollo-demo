@@ -1,0 +1,15 @@
+FROM node:14-alpine
+
+ARG API_URL
+ENV API_URL $API_URL
+
+WORKDIR /opt/web
+COPY package.json yarn.lock ./
+RUN yarn
+
+COPY . ./
+RUN yarn build
+
+CMD ["yarn", "start"]
+
+

@@ -1,0 +1,10 @@
+FROM node:14-alpine
+
+WORKDIR /opt/web
+COPY package.json yarn.lock ./
+RUN yarn
+
+COPY . ./
+
+CMD ["yarn", "start"]
+

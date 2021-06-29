@@ -4,10 +4,11 @@ import styles from "./UsersTableWithSearch.module.css";
 import { TextField } from "@material-ui/core";
 import { debounce } from "../../utils";
 import { UsersTable } from "./UsersTable";
+import { user } from "./Types";
 
 const UsersTableWithSearch = () => {
     const { data, loading } = useQuery<Response>(query);
-    const [filteredData, setFilteredData] = React.useState<users>(null);
+    const [filteredData, setFilteredData] = React.useState<Array<user>>(null);
 
     return (
         <div>
@@ -40,15 +41,8 @@ const UsersTableWithSearch = () => {
 };
 
 type Response = {
-    users: users;
+    users: Array<user>;
 };
-
-type users = Array<{
-    name: string;
-    phone: string;
-    email: string;
-    address: string;
-}>;
 
 const query = gql`
     query users {

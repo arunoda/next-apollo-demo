@@ -7,7 +7,7 @@ module.exports = {
                     {
                         key: "X-Frame-Options",
                         value: "SAMEORIGIN",
-                    }
+                    },
                 ],
             },
         ];

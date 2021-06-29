@@ -1,8 +1,9 @@
 import React from "react";
 import { Card, CardContent, CardHeader, Typography } from "@material-ui/core";
+import { user } from "./Types";
 
 interface UserCardProps {
-    user: { name: string; address: string; phone: string; email: string };
+    user: user;
 }
 
 export const UserCard = (props: UserCardProps) => (

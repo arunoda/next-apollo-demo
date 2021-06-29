@@ -3,8 +3,10 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import { graphqlExpress, graphiqlExpress } from "apollo-server-express";
 import myGraphQLSchema from "./schema.js";
+import helmet from "helmet";
 
 const app = express();
+app.use(helmet());
 
 // to access graphql API from the client side
 app.use(cors());

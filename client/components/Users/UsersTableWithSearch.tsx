@@ -15,6 +15,7 @@ const UsersTableWithSearch = () => {
             <div className={styles["users-search"]}>
                 <TextField
                     label="search user"
+                    placeholder="search user"
                     variant="outlined"
                     onChange={(e) => {
                         const debouncedSearch = debounce(setFilteredData, 300);
@@ -51,7 +52,7 @@ type Response = {
     users: Array<user>;
 };
 
-const query = gql`
+export const query = gql`
     query users {
         users {
             name

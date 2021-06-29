@@ -4,7 +4,9 @@
     "main": "index.js",
     "scripts": {
         "predev": "tsc && prettier --check .",
-        "dev": "next"
+        "dev": "next",
+        "test": "jest",
+        "test:watch": "jest --watch"
     },
     "license": "MIT",
     "dependencies": {
@@ -12,16 +14,22 @@
         "@apollo/react-hooks": "4.0.0",
         "@material-ui/core": "4.11.4",
         "@material-ui/icons": "4.11.2",
+        "@testing-library/jest-dom": "5.14.1",
+        "@testing-library/react": "12.0.0",
+        "@types/jest": "^26.0.23",
         "@types/react": "16.8.0",
         "graphql": "14.3.1",
         "next": "10.0.0",
         "next-apollo": "5.0.6",
         "react": "16.10.0",
         "react-dom": "16.10.0",
-        "react-infinite-scroll-component": "6.1.0"
+        "react-infinite-scroll-component": "6.1.0",
+        "ts-jest": "27.0.3"
     },
     "devDependencies": {
         "@types/node": "15.12.4",
+        "identity-obj-proxy": "3.0.0",
+        "jest": "27.0.6",
         "prettier": "2.3.1",
         "typescript": "4.3.4"
     }

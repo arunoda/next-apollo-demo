@@ -1,5 +1,5 @@
 export const debounce = (fn: Function, delay: number) => {
-    let timer: NodeJS.Timeout = null;
+    let timer: null | ReturnType<typeof setTimeout> = null;
     return function (...args: unknown[]) {
         const context = this;
         timer && clearTimeout(timer);

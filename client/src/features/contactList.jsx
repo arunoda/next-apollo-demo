@@ -50,6 +50,7 @@ export default function ContactList() {
         setMoreData(false);
       }
     },
+
     onError: () => {
       setOpenDialog(true);
     },
@@ -71,6 +72,8 @@ export default function ContactList() {
       setSearchQuery('');
     }
   };
+
+  console.log(loading);
 
   // React.useEffect(() => {
   //   if (!loading) {

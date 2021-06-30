@@ -4,7 +4,8 @@
     "commonjs": true,
     "es6": true,
     "node": true,
-    "jest/globals": true
+    "jest/globals": true,
+    "cypress/globals": true
   },
   "extends": [
     "airbnb",
@@ -37,7 +38,7 @@
     //   "alias": { "map": [["src", "./src"]], "extensions": [".jsx", ".js"] }
     // }
   },
-  "plugins": ["react", "react-hooks", "jest"],
+  "plugins": ["react", "react-hooks", "jest", "cypress"],
   "rules": {
     "react/jsx-props-no-spreading": 0,
     "react/forbid-prop-types": 0

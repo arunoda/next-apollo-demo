@@ -1,0 +1,4 @@
+{
+    "integrationFolder": "tests/e2e/integration",
+    "supportFile": "tests/e2e/support/index.js"
+}

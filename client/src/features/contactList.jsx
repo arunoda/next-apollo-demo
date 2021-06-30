@@ -73,8 +73,6 @@ export default function ContactList() {
     }
   };
 
-  console.log(loading);
-
   // React.useEffect(() => {
   //   if (!loading) {
   //     setPersonsData(prevState => [...prevState, ...data.persons]);

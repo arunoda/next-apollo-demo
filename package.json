@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "publish-api": "git subtree push --prefix server heroku-api master",
-    "publish-app": "git subtree push --prefix client heroku-app master"
+    "publish-app": "git subtree push --prefix client heroku-app master",
+    "publish": "yarn publish-api && yarn publish-app"
   },
   "repository": {
     "type": "git",

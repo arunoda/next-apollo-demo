@@ -9,7 +9,7 @@ const {
 
 const faker = require("faker");
 
-const fakeData = [...Array(2000).keys()].map(() => ({
+const fakeData = [...Array(20).keys()].map(() => ({
   name: faker.name.findName(),
   address: faker.address.streetAddress(),
   email: faker.internet.email(),

@@ -1,0 +1,19 @@
+{
+  "name": "next-apollo-demo",
+  "version": "2.0.0",
+  "description": "",
+  "scripts": {
+    "publish-api": "git subtree push --prefix server heroku-api master",
+    "publish-app": "git subtree push --prefix client heroku-app master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/honohunter/next-apollo-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/honohunter/next-apollo-demo/issues"
+  },
+  "homepage": "https://github.com/honohunter/next-apollo-demo#readme"
+}

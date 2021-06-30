@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { useQuery } from '@apollo/client';
@@ -21,7 +22,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import ContactCard from '../components/contactCard';
 
-import { getPersonsQuery } from '../api/persons';
+import { GET_PERSONS_QUERY } from '../query/persons';
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -37,13 +38,17 @@ export default function ContactList() {
   const [contactsData, setContacts] = React.useState([]);
   const [openDialog, setOpenDialog] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
+  const [moreData, setMoreData] = React.useState(true);
 
   const filteredContactsData = contactsData.filter(ele => ele.name.match(searchQuery));
 
-  const { loading } = useQuery(getPersonsQuery, {
+  const { loading, error } = useQuery(GET_PERSONS_QUERY, {
     variables,
-    onCompleted: data => {
-      setContacts(prev => [...prev, ...data.persons]);
+    onCompleted: ({ persons }) => {
+      setContacts(prev => [...prev, ...persons]);
+      if (persons.length < variables.limit) {
+        setMoreData(false);
+      }
     },
     onError: () => {
       setOpenDialog(true);
@@ -75,12 +80,13 @@ export default function ContactList() {
 
   return (
     <>
-      <Container>
+      <Container data-testid="contact-list">
         <div className={classes.wrapper}>
           <TextField
             variant="outlined"
             placeholder="Search"
             onChange={handleSearch}
+            inputProps={{ 'data-testid': 'contact-search' }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -93,28 +99,38 @@ export default function ContactList() {
         <Grid container spacing={3}>
           {filteredContactsData.map((ele, index) => (
             <Grid key={index} item xs sm={6} md={4}>
-              <ContactCard {...ele} />
+              <ContactCard {...ele} data-testid="contact-card" />
             </Grid>
           ))}
         </Grid>
 
-        {filteredContactsData.length === 0 && (
+        {filteredContactsData.length === 0 && !error && (
           <div className={classes.wrapper}>
-            <Typography variant="h6">Nothing found</Typography>
+            <Typography variant="h6" data-testid="contact-missing">
+              Nothing found
+            </Typography>
           </div>
         )}
 
         <div className={classes.wrapper}>
           {loading ? (
-            <CircularProgress />
+            <CircularProgress data-testid="loading-spinner" />
           ) : (
-            <Button variant="contained" size="large" color="secondary" onClick={handleLoadMore}>
-              Load more
-            </Button>
+            moreData && (
+              <Button
+                data-testid="loading-button"
+                variant="contained"
+                size="large"
+                color="secondary"
+                onClick={handleLoadMore}
+              >
+                Load more
+              </Button>
+            )
           )}
         </div>
       </Container>
-      <Dialog open={openDialog} onClose={handleCloseDialog}>
+      <Dialog open={openDialog} onClose={handleCloseDialog} data-testid="error-dialog">
         <DialogTitle>Error</DialogTitle>
         <DialogContent>
           <DialogContentText>

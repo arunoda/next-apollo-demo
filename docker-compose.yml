@@ -6,7 +6,7 @@ services:
       context: client
       dockerfile: dockerfile
       args:
-        - API_URL=http://localhost:${SERVER_PORT}/${API_PATH}
+        - API_URL=${API_URL}
     environment:
       - PORT=${CLIENT_PORT}
 

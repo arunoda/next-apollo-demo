@@ -1,8 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 import { gql } from '@apollo/client';
 
-export const getPersonsQuery = gql`
-  query getPersons ($limit: Int!, $offset: Int!) {
+export const GET_PERSONS_QUERY = gql`
+  query ($limit: Int!, $offset: Int!) {
     persons(limit: $limit, offset: $offset) {
       name
       address

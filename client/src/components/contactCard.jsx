@@ -15,7 +15,7 @@ export default function ContactCard({ name, address, email, phone }) {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root}>
+    <Paper className={classes.root} data-testid="contact-card">
       <List>
         <ListItem>
           <ListItemAvatar>
@@ -23,7 +23,7 @@ export default function ContactCard({ name, address, email, phone }) {
               <ImageIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={name} />
+          <ListItemText data-testid="contact-name" primary={name} />
         </ListItem>
         <ListItem>
           <ListItemAvatar>
@@ -31,7 +31,7 @@ export default function ContactCard({ name, address, email, phone }) {
               <ImageIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={address} />
+          <ListItemText data-testid="contact-address" primary={address} />
         </ListItem>
         <ListItem>
           <ListItemAvatar>
@@ -39,7 +39,7 @@ export default function ContactCard({ name, address, email, phone }) {
               <ImageIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={email} />
+          <ListItemText data-testid="contact-email" primary={email} />
         </ListItem>
         <ListItem>
           <ListItemAvatar>
@@ -47,7 +47,7 @@ export default function ContactCard({ name, address, email, phone }) {
               <ImageIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={phone} />
+          <ListItemText data-testid="contact-phone" primary={phone} />
         </ListItem>
       </List>
     </Paper>

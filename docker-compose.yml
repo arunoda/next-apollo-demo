@@ -18,5 +18,7 @@ services:
     build: server
     environment:
       - PORT=${SERVER_PORT}
+      - APP_URL=${APP_URL}
+      - NODE_ENV=${NODE_ENV}
     ports:
       - "${SERVER_PORT}:${SERVER_PORT}"

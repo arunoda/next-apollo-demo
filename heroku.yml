@@ -1,4 +1,7 @@
 build:
   docker:
-    frontend: client/dockerfile
+    web: client/dockerfile
     backend: server/dockerfile
+  config:
+    RAILS_ENV: development
+    FOO: bar

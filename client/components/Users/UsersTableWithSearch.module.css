@@ -1,0 +1,23 @@
+.users-search {
+    align-items: center;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 24px;
+}
+
+.users-table {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1024px) {
+    .users-table {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 360px) {
+    .users-table {
+        grid-template-columns: auto;
+    }
+}

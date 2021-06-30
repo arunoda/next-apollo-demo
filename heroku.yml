@@ -1,7 +1,0 @@
-build:
-  docker:
-    web: client/dockerfile
-    backend: server/dockerfile
-  config:
-    RAILS_ENV: development
-    FOO: bar

@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: dockerfile
+  config:
+    API_URL: API_URL=https://hono-graphql-api.herokuapp.com/

@@ -9,7 +9,7 @@ const {
 
 const faker = require("faker");
 
-const fakeData = [...Array(1000).keys()].map((id) => ({
+const fakeData = [...Array(2000).keys()].map((id) => ({
   id,
   name: faker.name.findName(),
   address: faker.address.streetAddress(),
@@ -18,9 +18,8 @@ const fakeData = [...Array(1000).keys()].map((id) => ({
 }));
 
 const getData = ({ limit, offset }) => {
-  console.log(limit, offset);
   if (limit) {
-    return fakeData.slice(offset * limit, offset * limit + limit);
+    return fakeData.slice(offset, offset + limit);
   }
   return fakeData;
 };

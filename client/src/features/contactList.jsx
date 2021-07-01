@@ -16,11 +16,12 @@ import {
   TextField,
   Typography,
   InputAdornment,
+  Backdrop,
 } from '@material-ui/core';
 
 import SearchIcon from '@material-ui/icons/Search';
 
-import ContactCard from '../components/contactCard';
+import { MemoContactCard } from '../components/contactCard';
 
 import { GET_PERSONS_QUERY } from '../query/persons';
 
@@ -33,31 +34,39 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ContactList() {
+  const limit = 9;
+  const offset = 0;
   const classes = useStyles();
-  const [variables, setVariables] = React.useState({ limit: 10, offset: 1 });
-  const [contactsData, setContacts] = React.useState([]);
   const [openDialog, setOpenDialog] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
   const [moreData, setMoreData] = React.useState(true);
 
-  const filteredContactsData = contactsData.filter(ele => ele.name.match(searchQuery));
-
-  const { loading, error } = useQuery(GET_PERSONS_QUERY, {
-    variables,
-    onCompleted: ({ persons }) => {
-      setContacts(prev => [...prev, ...persons]);
-      if (persons.length < variables.limit) {
-        setMoreData(false);
-      }
-    },
-
+  const {
+    loading,
+    error,
+    fetchMore,
+    data = { persons: [] },
+  } = useQuery(GET_PERSONS_QUERY, {
+    variables: { limit, offset },
+    notifyOnNetworkStatusChange: true,
     onError: () => {
       setOpenDialog(true);
     },
   });
 
-  const handleLoadMore = () => {
-    setVariables({ ...variables, offset: variables.offset + 1 });
+  const filteredContactsData = data.persons.filter(ele => ele.name.match(searchQuery));
+
+  const handleLoadMore = async () => {
+    try {
+      const { data: newData } = await fetchMore({ variables: { offset: data.persons.length } });
+
+      // disable loading more button condition
+      if (newData.persons.length < limit) {
+        setMoreData(false);
+      }
+    } catch (newError) {
+      setOpenDialog(error);
+    }
   };
 
   const handleCloseDialog = () => {
@@ -73,14 +82,11 @@ export default function ContactList() {
     }
   };
 
-  // React.useEffect(() => {
-  //   if (!loading) {
-  //     setPersonsData(prevState => [...prevState, ...data.persons]);
-  //   }
-  // }, [data, loading]);
-
   return (
     <>
+      <Backdrop open={loading}>
+        <CircularProgress data-testid="loading-spinner" />
+      </Backdrop>
       <Container data-testid="contact-list">
         <div className={classes.wrapper}>
           <TextField
@@ -98,14 +104,14 @@ export default function ContactList() {
           />
         </div>
         <Grid container spacing={3}>
-          {filteredContactsData.map((ele, index) => (
-            <Grid key={index} item xs sm={6} md={4}>
-              <ContactCard {...ele} data-testid="contact-card" />
+          {filteredContactsData.map(ele => (
+            <Grid key={ele.id} item xs sm={6} md={4}>
+              <MemoContactCard {...ele} data-testid="contact-card" />
             </Grid>
           ))}
         </Grid>
 
-        {filteredContactsData.length === 0 && !error && (
+        {filteredContactsData.length === 0 && !loading && (
           <div className={classes.wrapper}>
             <Typography variant="h6" data-testid="contact-missing">
               Nothing found
@@ -114,20 +120,16 @@ export default function ContactList() {
         )}
 
         <div className={classes.wrapper}>
-          {loading ? (
-            <CircularProgress data-testid="loading-spinner" />
-          ) : (
-            moreData && (
-              <Button
-                data-testid="loading-button"
-                variant="contained"
-                size="large"
-                color="secondary"
-                onClick={handleLoadMore}
-              >
-                Load more
-              </Button>
-            )
+          {moreData && (
+            <Button
+              data-testid="loading-button"
+              variant="contained"
+              size="large"
+              color="secondary"
+              onClick={handleLoadMore}
+            >
+              Load more
+            </Button>
           )}
         </div>
       </Container>

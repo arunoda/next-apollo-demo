@@ -59,3 +59,5 @@ ContactCard.propTypes = {
   email: PropsType.string.isRequired,
   phone: PropsType.string.isRequired,
 };
+
+export const MemoContactCard = React.memo(ContactCard);

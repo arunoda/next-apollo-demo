@@ -1,20 +1,35 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const { graphqlExpress, graphiqlExpress } = require('apollo-server-express')
-const myGraphQLSchema = require('./schema')
+require("dotenv").config();
 
-const app = express();
+const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
+const { ApolloServer, gql } = require("apollo-server-express");
 
-// to access graphql API from the client side
-app.use(cors())
-// bodyParser is needed just for POST.
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: myGraphQLSchema }));
-// for the graphiql interface
-app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+const schema = require("./schema");
 
-const port = process.env.PORT || 5000
-app.listen(port, (err) => {
-  if (err) throw err
-  console.log(`Graphql Server started on: http://localhost:${port}`)
-})
+const port = process.env.PORT;
+
+console.log(process.env.NODE_ENV);
+
+async function startApolloServer() {
+  const server = new ApolloServer({ schema });
+  await server.start();
+
+  const app = express();
+
+  if (process.env.NODE_ENV === "production") {
+    const corsOptions = {
+      origin: process.env.APP_URL,
+    };
+    app.use(helmet());
+    app.use(cors(corsOptions));
+  }
+
+  server.applyMiddleware({ app });
+
+  await new Promise((resolve) => app.listen({ port }, resolve));
+  console.log(`Server ready at http://localhost:${port}${server.graphqlPath}`);
+  return { server, app };
+}
+
+startApolloServer();

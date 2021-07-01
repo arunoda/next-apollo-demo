@@ -9,16 +9,18 @@ const {
 
 const faker = require("faker");
 
-const fakeData = [...Array(20).keys()].map(() => ({
+const fakeData = [...Array(1000).keys()].map((id) => ({
+  id,
   name: faker.name.findName(),
   address: faker.address.streetAddress(),
   email: faker.internet.email(),
   phone: faker.phone.phoneNumber(),
 }));
 
-const getData = ({ limit, offset = 1 }) => {
+const getData = ({ limit, offset }) => {
+  console.log(limit, offset);
   if (limit) {
-    return fakeData.slice((offset - 1) * limit, offset * limit);
+    return fakeData.slice(offset * limit, offset * limit + limit);
   }
   return fakeData;
 };
@@ -26,6 +28,9 @@ const getData = ({ limit, offset = 1 }) => {
 const personType = new GraphQLObjectType({
   name: "Person",
   fields: {
+    id: {
+      type: GraphQLInt,
+    },
     name: {
       type: GraphQLString,
     },

@@ -34,10 +34,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ContactList() {
-  const limit = 9;
+  const limit = 10;
   const offset = 0;
   const classes = useStyles();
-  const [openDialog, setOpenDialog] = React.useState(false);
+  const [openDialog, setOpenDialog] = React.useState();
   const [searchQuery, setSearchQuery] = React.useState('');
   const [moreData, setMoreData] = React.useState(true);
 
@@ -133,7 +133,7 @@ export default function ContactList() {
           )}
         </div>
       </Container>
-      <Dialog open={openDialog} onClose={handleCloseDialog} data-testid="error-dialog">
+      <Dialog open={Boolean(openDialog)} onClose={handleCloseDialog} data-testid="error-dialog">
         <DialogTitle>Error</DialogTitle>
         <DialogContent>
           <DialogContentText>

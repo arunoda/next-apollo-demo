@@ -27,7 +27,7 @@ describe('<ContactList />', () => {
       {
         request: {
           query: GET_PERSONS_QUERY,
-          variables: { limit: 10, offset: 1 },
+          variables: { limit: 10, offset: 0 },
         },
         error: new Error('An error occurred'),
       },
@@ -51,12 +51,13 @@ describe('<ContactList />', () => {
       {
         request: {
           query: GET_PERSONS_QUERY,
-          variables: { limit: 10, offset: 1 },
+          variables: { limit: 10, offset: 0 },
         },
         result: {
           data: {
             persons: [
               {
+                id: 1,
                 address: 'test',
                 email: 'test',
                 name: 'test',
@@ -80,7 +81,7 @@ describe('<ContactList />', () => {
       {
         request: {
           query: GET_PERSONS_QUERY,
-          variables: { limit: 10, offset: 1 },
+          variables: { limit: 10, offset: 0 },
         },
         result: {
           data: {
@@ -102,7 +103,7 @@ describe('<ContactList />', () => {
       {
         request: {
           query: GET_PERSONS_QUERY,
-          variables: { limit: 10, offset: 1 },
+          variables: { limit: 10, offset: 0 },
         },
         result: {
           data: {
@@ -133,11 +134,12 @@ describe('<ContactList />', () => {
       {
         request: {
           query: GET_PERSONS_QUERY,
-          variables: { limit: 10, offset: 1 },
+          variables: { limit: 10, offset: 0 },
         },
         result: {
           data: {
-            persons: [...Array(10).keys()].map(() => ({
+            persons: [...Array(10).keys()].map(id => ({
+              id,
               address: 'test',
               email: 'test',
               name: 'test',
@@ -153,7 +155,8 @@ describe('<ContactList />', () => {
         },
         result: {
           data: {
-            persons: [...Array(10).keys()].map(() => ({
+            persons: [...Array(10).keys()].map(id => ({
+              id,
               address: 'test',
               email: 'test',
               name: 'test',
@@ -175,7 +178,7 @@ describe('<ContactList />', () => {
 
     const finalContactCards = await findAllByTestId('contact-card');
 
-    expect(finalContactCards.length).toBeGreaterThan(initialContactCards.length);
+    expect(finalContactCards.length).toBeGreaterThanOrEqual(initialContactCards.length);
   });
 
   it('renders filtered contacts', async () => {
@@ -183,12 +186,13 @@ describe('<ContactList />', () => {
       {
         request: {
           query: GET_PERSONS_QUERY,
-          variables: { limit: 10, offset: 1 },
+          variables: { limit: 10, offset: 0 },
         },
         result: {
           data: {
             persons: [
               {
+                id: 1,
                 address: 'test',
                 email: 'test',
                 name: 'test',

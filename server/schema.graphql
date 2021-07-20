@@ -1,0 +1,9 @@
+type Query{
+users(page:Int, perPage:Int): [User]
+}
+type User {
+name: String
+address: String
+email: String
+phone: String
+}

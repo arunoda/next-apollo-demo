@@ -1,14 +1,17 @@
 import Link from 'next/link'
-import WithApollo from '../lib/with-apollo'
-import Name from '../components/Name'
+import { Nav } from "react-bootstrap";
+
 
 const Page = () => (
-  <div>
-    Welcome, <Name />
-    <br/><br/>
-    <Link href="/about"><a>About</a></Link>
-
-  </div>
+  <Nav>
+    <div style={{ marginRight: '4rem' }}>Welcome</div>
+    <Nav.Item>
+      <Link href="/about"><a style={{ marginRight: '2rem' }}>About</a></Link>
+    </Nav.Item>
+    <Nav.Item>
+      <Link href="/gallery"><a>Gallery</a></Link>
+    </Nav.Item>
+  </Nav>
 )
 
-export default WithApollo(Page)
+export default Page

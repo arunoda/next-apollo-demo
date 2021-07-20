@@ -1,37 +1,19 @@
 import React from "react";
-// Using render and screen from test-utils.js instead of
-// @testing-library/react
-
 import CardList from "../CardList";
-import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-configure({ adapter: new Adapter() });
+import { render, cleanup } from '@testing-library/react';
 
 
 describe("Card List", () => {
-
-    let wrapper;
     const props = {
         users: [{
             name: "Ruapli",
-
-
         }]
     }
-    describe('Title', () => {
-        beforeEach(() => {
-            wrapper = shallow(<CardList {...props}></CardList>)
-        })
-
+    describe('should render cardlist', () => {
+        const { getByTestId } = render(<CardList {...props} />);
         it('should render the CardTitle correctly with name', () => {
-
-            expect(wrapper.find('Card').find('CardTitle').text().includes('Ruapli')).toBe(true);
-
-
-
+            expect(getByTestId('title').textContent).toEqual(props.users[0].name);
         });
-
 
     })
 });

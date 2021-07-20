@@ -10,6 +10,7 @@ import { UserListData, UserListVars } from '../interfaces/interfaces';
 const Cardswrp = (props) => {
 
     const PER_PAGE_COUNT = 20;
+
     const { data, error, loading, fetchMore } = useQuery<UserListData, UserListVars>(GET_USERS, { variables: { page: 1, perPage: PER_PAGE_COUNT } })
     const [loadMoreFlag, setLoadMoreFlag] = React.useState(true);
 
@@ -20,13 +21,13 @@ const Cardswrp = (props) => {
                 page: data.users.length + 1,
                 perPage: PER_PAGE_COUNT
             }, updateQuery: (prev: any, { fetchMoreResult }) => {
-
+                if (fetchMoreResult.users.length < 0) setLoadMoreFlag(false)
                 if (!fetchMoreResult) return prev;
                 return Object.assign({}, prev, {
                     users: [...prev.users, ...fetchMoreResult.users]
                 });
 
-                if(fetchMoreResult.users.length < 0) setLoadMoreFlag(false)
+
             }
         })
 
@@ -36,8 +37,8 @@ const Cardswrp = (props) => {
             {
 
 
-                 error ? <div>Error!</div> : loading ? <div>Loading...</div> :
-                    <Cards users={data.users}></Cards>
+                error ? <div data-testid="error">Error!</div> : loading ? <div data-testid="loader">Loading...</div> :
+                    <Cards data-testid="cards" users={data.users}></Cards>
 
             }
             {

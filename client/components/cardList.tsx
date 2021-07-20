@@ -10,7 +10,7 @@ const CardList = (props: UserListData) => {
             {users.map((user: UserObj) => {
                 return <Col key={user.name}> <CardGroup><Card style={{  marginBottom:'2rem', minWidth:'15rem', minHeight:'5rem' }}>
                     <Card.Body>
-                        <Card.Title style={{fontSize:'14px'}}>{user.name}</Card.Title>
+                        <Card.Title data-testid="title" style={{fontSize:'14px'}}>{user.name}</Card.Title>
                         <Card.Text style={{fontSize:'10px'}}>
                             {user.address}
                         </Card.Text>

@@ -1,0 +1,18 @@
+version: '2'
+services:
+  frontend:
+    build: ./client
+    ports:
+      - '3000:3000'
+    links:
+      - backend
+    environment:
+      PORT: 3000
+      API_BASE_URL: http://backend:4000/graphql
+  backend:
+    build: ./server
+    restart: always
+    ports:
+      - '4000:4000'
+    environment:
+      PORT: 4000

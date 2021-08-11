@@ -1,0 +1,11 @@
+query Contacts($limit:Int!,$offset:Int!){
+    contacts(limit:$limit,offset:$offset){
+        name
+        phone
+        address
+        email
+    }
+}
+query Name {
+    name
+}

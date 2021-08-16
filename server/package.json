@@ -6,11 +6,12 @@
     "start": "node server"
   },
   "dependencies": {
-    "apollo-server-express": "^1.2.0",
-    "body-parser": "^1.18.2",
-    "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "faker": "^4.1.0",
-    "graphql": "^0.11.7"
+    "apollo-server": "^3.1.2",
+    "body-parser": "^1.19.0",
+    "faker": "^5.5.3",
+    "graphql": "^15.5.1"
+  },
+  "devDependencies": {
+    "yarn-upgrade-all": "^0.5.4"
   }
 }

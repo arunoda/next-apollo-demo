@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const getDetails = gql`
-  query details {
-    details {
+  query details($offset: Int, $limit: Int, $search: String) {
+    details(offset: $offset, limit: $limit, search: $search) {
       name
       address
       email

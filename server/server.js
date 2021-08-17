@@ -11,14 +11,21 @@ const typeDefs = gql`
   }
   type Query {
     name: String!
-    details: [Detail]
+    details(offset: Int, limit: Int, search: String): [Detail]
   }
 `;
 
 const resolvers = {
   Query: {
     name: () => faker.name.findName(),
-    details: () => users.filter((u) => u.name.startsWith('A')),
+    details: (_, { offset, limit, search }) =>
+      users
+        .filter((user) =>
+          user.name?.toLowerCase().includes(search?.toLowerCase() || "")
+        )
+        .filter(
+          (user, index) => index >= offset && index < offset + (limit || 10)
+        ),
   },
 };
 

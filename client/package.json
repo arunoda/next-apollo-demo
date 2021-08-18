@@ -3,20 +3,54 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "test": "jest",
+    "cypress:open": "cypress open"
   },
   "license": "MIT",
   "dependencies": {
     "@apollo/client": "^3.4.7",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.6.1",
     "graphql": "^15.5.1",
+    "identity-obj-proxy": "^3.0.0",
     "next": "^11.1.0",
     "node-sass": "4.14.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "babel-jest": "^27.0.6",
+    "cypress": "^8.3.0",
+    "jest": "^27.0.6",
     "sass-loader": "11.1.1",
     "typescript": "^4.3.5",
     "yarn-upgrade-all": "^0.5.4"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.scss$": "identity-obj-proxy"
+    }
   }
 }

@@ -1,5 +1,47 @@
+.listContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.resultsLabel {
+  text-align: center;
+  margin-top: 8px;
+}
+
 .cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 8px;
-  margin-bottom: 8px;;
+  margin: 8px 8px 8px 0;
   border: 1px solid;
+  border-radius: 27px;
+  width: 170px;
+}
+
+.loadButton {
+  display: flex;
+  border: 1px solid black;
+  height: 36px;
+  width: 250px;
+  border-radius: 18px;
+
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 768px) {
+  .cardContainer {
+    flex: 1;
+    margin: 8px;
+    min-width: 250px;
+  }
 }

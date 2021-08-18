@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node server",
-    "start": "PORT=3000 node server"
+    "start": "node server"
   },
   "dependencies": {
     "apollo-server": "^3.1.2",

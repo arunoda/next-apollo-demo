@@ -7,7 +7,7 @@ import { GET_DETAILS } from '../../apollo/queries/getDetails';
 import styles from './list.module.scss';
 
 export const List = () => {
-  const [getDetailsQuery, { data, fetchMore }] = useLazyQuery(GET_DETAILS);
+  const [getDetailsQuery, { data, loading, fetchMore }] = useLazyQuery(GET_DETAILS);
   const [detailsArray, setDetailsArray] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [shouldFetchMore, setShouldFetchMore] = useState(false);
@@ -43,13 +43,16 @@ export const List = () => {
     <div>
       <SearchBar setInputValue={setInputValue} />
       {inputValue !== '' && <div className={styles.resultsLabel}>Results for : {inputValue}</div>}
+
       <div className={styles.listContainer}>
-        {detailsArray?.map((detail, index: number) => (
-          <div className={styles.cardContainer} key={`${detail?.name}-${index}`} data-testid='cardContainer'>
-            <div>{detail?.name}</div>
-            <div>{detail?.address}</div>
-          </div>
-        ))}
+        {loading ? <div>loading</div>
+          : detailsArray?.map((detail, index: number) => (
+            <div className={styles.cardContainer} key={`${detail?.name}-${index}`} data-testid='cardContainer'>
+              <div>{detail?.name}</div>
+              <div>{detail?.address}</div>
+            </div>
+          ))
+        }
       </div>
       {shouldFetchMore &&
         <div className={styles.loadButton} data-testid='loadButton' onClick={fetchMoreData}>Load more data</div>

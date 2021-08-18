@@ -32,8 +32,6 @@ const resolvers = {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  introspection: true,
-  playground: true,
   formatError: (err) => {
     if (err.message.startsWith("Database Error: ")) {
       return new Error("Internal server error");
@@ -42,6 +40,6 @@ const server = new ApolloServer({
   },
 });
 
-server.listen().then(({ url }) => {
+server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
 });

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node server"
+    "dev": "node server",
+    "start": "PORT=3000 node server"
   },
   "dependencies": {
     "apollo-server": "^3.1.2",

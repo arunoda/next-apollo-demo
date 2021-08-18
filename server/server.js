@@ -34,6 +34,12 @@ const server = new ApolloServer({
   resolvers,
   introspection: true,
   playground: true,
+  formatError: (err) => {
+    if (err.message.startsWith("Database Error: ")) {
+      return new Error("Internal server error");
+    }
+    return err;
+  },
 });
 
 server.listen().then(({ url }) => {

@@ -1,7 +1,8 @@
+import React from 'react';
 import { useQuery } from "@apollo/client";
-import { getName } from "../../apollo/queries/getName";
+import { GET_NAME } from "../../apollo/queries/getName";
 
 export const Name = () => {
-  const { data } = useQuery(getName);
+  const { data } = useQuery(GET_NAME);
   return <span>{data?.loading ? ".." : data?.name}</span>;
 };

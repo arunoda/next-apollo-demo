@@ -8,7 +8,8 @@ const Page = () => (
     <div>
       Welcome, <Name />
       <br/><br/>
-      <Link href="/about"><a>About</a></Link>
+      <Link href="/about"><a>About</a></Link><br/>
+      <Link href="/contacts"><a>Contacts</a></Link>
 
     </div>
   </ApolloProvider>

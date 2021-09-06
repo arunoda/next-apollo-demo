@@ -1,0 +1,19 @@
+.card {
+  position: relative;
+  background: white;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px 0px #aaa;
+}
+
+.card__name {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 20px;
+}
+
+.card__address,
+.card__email,
+.card__phone {
+  color: grey;
+}

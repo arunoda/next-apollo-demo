@@ -1,16 +1,25 @@
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
+import { gql, useQuery } from '@apollo/client'
+const Component = () => {
 
-const Component = ({ data }) => (
-  <span>
-    {data.loading? '..' : data.name}
-  </span>
-)
+  const query = gql`
+    {
+      user(id: 1) {
+        id
+        name
+      }
+    }
+  `
 
-const query = gql`
-  query name {
-    name
-  }
-`
+  const { loading, error, data } = useQuery(query)
 
-export default graphql(query)(Component)
+  if (loading) return 'Loading...'
+  if (error) return `Error! ${error.message}`
+
+  return (
+    <span>
+      {data.user.name}
+    </span>
+  )
+}
+
+export default Component

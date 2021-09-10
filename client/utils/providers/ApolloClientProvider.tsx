@@ -7,15 +7,19 @@ import {
 
 import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks'
 
+interface ApolloClientProviderProps {
+  children: React.ReactNode | string;
+}
+
 const client = new ApolloClient({
   uri: 'https://faker-graphql.now.sh/graphql',
   cache: new InMemoryCache()
 });
 
-const ApolloClientProvider = ({ children }) => (
+const ApolloClientProvider = ({ children }: ApolloClientProviderProps): JSX.Element => (
   <ApolloProvider client={client}>
     <ApolloHooksProvider client={client}>
-      { children }
+      {children}
     </ApolloHooksProvider>
   </ApolloProvider>);
 

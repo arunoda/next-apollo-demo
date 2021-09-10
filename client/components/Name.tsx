@@ -1,14 +1,18 @@
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag'
 
-const Name = () => {
-  const { loading, data, error } = useQuery(GET_NAME, {
+interface NameData {
+  name: string;
+}
+
+const Name = (): JSX.Element => {
+  const { loading, data, error } = useQuery<NameData>(GET_NAME, {
     variables: { language: 'english' },
   });
-  
+
   return (
     <span>
-      {loading || error ? '..' : data.name}
+      {loading || error ? '..' : data?.name}
     </span>
   );
 }

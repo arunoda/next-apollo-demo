@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-export default () => (
+export default (): JSX.Element => (
   <div>
     About Page
-    <br/><br/>
+    <br /><br />
     <Link href="/"><a>Go Back</a></Link>
   </div>
 )

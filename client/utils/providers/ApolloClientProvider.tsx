@@ -12,7 +12,7 @@ interface ApolloClientProviderProps {
 }
 
 const client = new ApolloClient({
-  uri: 'https://faker-graphql.now.sh/graphql',
+  uri: process.env.NEXT_PUBLIC_API_URL,
   cache: new InMemoryCache()
 });
 

@@ -6,7 +6,6 @@ const Page = (): JSX.Element => (
     Welcome, <Name />
     <br /><br />
     <Link href="/about"><a>About</a></Link>
-
   </div>
 )
 

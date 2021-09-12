@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Name from '../components/Name'
+import { Name } from '../components'
 
 const Page = (): JSX.Element => (
   <div>

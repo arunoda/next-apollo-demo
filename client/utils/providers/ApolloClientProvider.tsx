@@ -8,7 +8,20 @@ interface ApolloClientProviderProps {
 
 const client = new ApolloClient({
   uri: process.env.NEXT_PUBLIC_API_URL,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          users: {
+            keyArgs: false,
+            merge(existing = [], incoming = []) {
+              return [...existing, ...incoming];
+            },
+          }
+        }
+      }
+    }
+  })
 });
 
 const ApolloClientProvider = ({ children }: ApolloClientProviderProps): JSX.Element => (

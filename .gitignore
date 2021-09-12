@@ -3,7 +3,7 @@ node_modules
 
 # dotenv environment variables file
 .env
-.env.build
+.env.local
 
 # Next build files
 client/.next

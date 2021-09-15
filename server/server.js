@@ -1,20 +1,44 @@
+const { ApolloServer }  = require('apollo-server-express');
+const { ApolloServerPluginDrainHttpServer, ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
 const express = require('express')
-const bodyParser = require('body-parser')
 const cors = require('cors')
-const { graphqlExpress, graphiqlExpress } = require('apollo-server-express')
-const myGraphQLSchema = require('./schema')
+const {createServer} = require('http');
+const bodyParser = require('body-parser')
 
-const app = express();
+const resolvers = require('./data/resolvers')
+const typeDefs = require('./data/typeDefs')
 
-// to access graphql API from the client side
-app.use(cors())
-// bodyParser is needed just for POST.
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: myGraphQLSchema }));
-// for the graphiql interface
-app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+async function startApolloServer(typeDefs, resolvers) {
+  const port = process.env.PORT || 5000
+  const app = express();
+  const httpServer = createServer(app);
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer }),
+      ApolloServerPluginLandingPageGraphQLPlayground({
+        settings: {
+            'endpoint': 'graphiql',
+            'editor.theme': 'dark',
+            'editor.fontSize': 14,
+            'editor.fontFamily': `'Source Code Pro', 'Consolas', 'Inconsolata', 'Droid Sans Mono', 'Monaco', monospace`,
+            'request.credentials': 'omit',
+          }
+      })
+    ],
+  });
+  await server.start();
+  app.use(cors())
 
-const port = process.env.PORT || 5000
-app.listen(port, (err) => {
-  if (err) throw err
-  console.log(`Graphql Server started on: http://localhost:${port}`)
-})
+  const middlewareOptions = {
+    app: app,
+    cors: true,
+    bodyParser: bodyParser().json
+  }
+  server.applyMiddleware(middlewareOptions);
+
+  await new Promise(resolve => httpServer.listen({ port: port }, resolve));
+  console.log(`🚀 Server ready at http://localhost:${port}${server.graphqlPath}`);
+}
+
+startApolloServer(typeDefs, resolvers);

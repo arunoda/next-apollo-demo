@@ -1,10 +1,28 @@
-import { withData } from 'next-apollo'
-import { HttpLink } from 'apollo-link-http'
+import { withApollo } from "next-apollo";
+import { ApolloClient, InMemoryCache, HttpLink, from } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
 
-const apolloConfig = {
-  link: new HttpLink({
-    uri: 'https://faker-graphql.now.sh/graphql'
-  })
-}
+const httpLink = new HttpLink({
+  // uri: "https://faker-graphql.now.sh/graphql"
+  uri: "http://localhost:5000/graphql"
+});
 
-export default withData(apolloConfig)
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors)
+    graphQLErrors.forEach(({ message, locations, path }) =>
+      console.log(
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
+      ),
+    );
+
+  if (networkError) console.log(`[Network error]: ${networkError}`);
+});
+
+const apolloClient = new ApolloClient({
+  // The `from` function combines an array of individual links
+  // into a link chain
+  link: from([errorLink, httpLink]),
+  cache: new InMemoryCache(),
+});
+
+export default withApollo(apolloClient);

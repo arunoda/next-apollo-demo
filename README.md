@@ -8,6 +8,8 @@ Prerequisite: Docker
 
 Installing docker-compose : npm i docker-compose
 
+Command for docker-compose to build/rebuild and run : docker-compose up --build
+
 Command for docker-compose to run : docker-compose up 
 
-Command for docker-compose to build/rebuild and run : docker-compose up --build
+After success docker UP - App or UI is running on http://localhost:3000 and graphQL server is running on http://localhost:5000/graphql

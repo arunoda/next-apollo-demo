@@ -12,8 +12,8 @@ export default new ApolloServer({
   typeDefs: TYPEDEFS,
   resolvers: RESOLVERS,
   playground: {
- 	  endPoint:`https://graphql-faker-express.herokuapp.com/graphql`,
-    //endpoint: `http://localhost:5000/graphql`, // this is graphQL client
+ 	  //endPoint:`https://graphql-faker-express.herokuapp.com/graphql`,
+    endpoint: `http://localhost:5000/graphql`, // this is graphQL client
     settings: {
       'editor.theme': 'light'
     }

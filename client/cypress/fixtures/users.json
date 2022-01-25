@@ -1,0 +1,89 @@
+{
+    "data":{
+       "UsersList": {
+          "users": [
+          {
+             "name":"Jermaine Renner",
+             "email":"Javier.Purdy@hotmail.com",
+             "phoneNumber":"734-739-7747",
+             "address":"52849 Dare Course",
+             "image":"https://cdn.fakercloud.com/avatars/mfacchinello_128.jpg",
+             "__typename":"User"
+          },
+          {
+             "name":"Miss Lyle Osinski",
+             "email":"Ethyl28@hotmail.com",
+             "phoneNumber":"883.348.3159 x61101",
+             "address":"92708 Kirlin Locks",
+             "image":"https://cdn.fakercloud.com/avatars/kinday_128.jpg",
+             "__typename":"User"
+          },
+          {
+             "name":"Cameron Hills",
+             "email":"Peter.Runolfsdottir@yahoo.com",
+             "phoneNumber":"652-842-1811 x86198",
+             "address":"7794 Hermann Landing",
+             "image":"https://cdn.fakercloud.com/avatars/dgajjar_128.jpg",
+             "__typename":"User"
+          },
+          {
+             "name":"Myrtle Koelpin Sr.",
+             "email":"Linnea.Lockman@hotmail.com",
+             "phoneNumber":"778.806.2482 x1004",
+             "address":"80014 Hirthe Forges",
+             "image":"https://cdn.fakercloud.com/avatars/mymyboy_128.jpg",
+             "__typename":"User"
+          },
+          {
+             "name":"Stacy Batz",
+             "email":"Wilfredo14@yahoo.com",
+             "phoneNumber":"536-974-2214",
+             "address":"68277 Justina Pike",
+             "image":"https://cdn.fakercloud.com/avatars/chaensel_128.jpg",
+             "__typename":"User"
+          },
+          {
+             "name":"Cary Schowalter",
+             "email":"Jacynthe72@gmail.com",
+             "phoneNumber":"1-970-457-0741",
+             "address":"7591 Caterina Bridge",
+             "image":"https://cdn.fakercloud.com/avatars/xilantra_128.jpg",
+             "__typename":"User"
+          },
+          {
+             "name":"Nathan Schultz",
+             "email":"Magnolia60@yahoo.com",
+             "phoneNumber":"(273) 705-3490 x20407",
+             "address":"4313 Dianna Isle",
+             "image":"https://cdn.fakercloud.com/avatars/tgormtx_128.jpg",
+             "__typename":"User"
+          },
+          {
+             "name":"Miss Cody Cronin",
+             "email":"Grayson96@yahoo.com",
+             "phoneNumber":"1-938-698-0610",
+             "address":"10958 Tamara Keys",
+             "image":"https://cdn.fakercloud.com/avatars/elbuscainfo_128.jpg",
+             "__typename":"User"
+          },
+          {
+             "name":"Luz Daugherty",
+             "email":"Dan.Toy@yahoo.com",
+             "phoneNumber":"685-634-5379",
+             "address":"337 Arely Port",
+             "image":"https://cdn.fakercloud.com/avatars/samuelkraft_128.jpg",
+             "__typename":"User"
+          },
+          {
+             "name":"Ron Funk",
+             "email":"Vincenzo.Von@gmail.com",
+             "phoneNumber":"516-939-7502",
+             "address":"962 Ebony Junction",
+             "image":"https://cdn.fakercloud.com/avatars/jeremyworboys_128.jpg",
+             "__typename":"User"
+          }
+       ],
+       "hasNextPage": true
+      }
+    }
+ }

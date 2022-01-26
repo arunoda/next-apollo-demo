@@ -1,0 +1,39 @@
+body {
+    /*font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+      'Arial', sans-serif;*/
+    background-color: aliceblue;
+    font-family:'sans-serif';font-style:normal;
+}
+
+main {
+  padding: 20px 0;
+  box-sizing: border-box;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.cards { 
+  display: grid;     
+  grid-template-columns: repeat(1, 1fr);    
+  grid-auto-rows: auto;   
+  grid-gap: 1rem;
+  box-sizing: border-box;
+  margin: 0 16px; 
+}
+
+.fwB{
+
+  font-weight:bold;
+}
+
+@media only screen and (min-width: 520px) {
+  .cards {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .cards {
+      grid-template-columns: repeat(3, 1fr);
+      margin: 0 32px;
+  }
+}

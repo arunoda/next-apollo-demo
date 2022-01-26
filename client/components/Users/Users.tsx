@@ -16,7 +16,7 @@ export default function Users() {
         count: 0,
         page: 1
       },
-      fetchPolicy: "cache-and-network",
+      fetchPolicy: "cache-and-network", // fetch data from cache and update the cache from network
       skip: true
     }
   );
@@ -34,6 +34,7 @@ export default function Users() {
     handleLoadMore();
   },[])
 
+
   // load more
   const handleLoadMore = () => {
     fetchMore({
@@ -43,12 +44,23 @@ export default function Users() {
       }
     })
     .then(res => {
+
+      // getting the users lists from response based on response type
+
       const users = (res.data && res.data.UsersList && Array.isArray(res.data.UsersList.users) && res.data.UsersList.users) || [];
       setUserList(list => [...list ,...users]);
-      const isNextpage = res.data && res.data.UsersList && res.data.UsersList.hasNextPage;
+
+      // checking if there is more page for user-listc
+      const isNextpage = res.data && res.data.UsersList && res.data.UsersList.hasNextPage;  
+
+      // updating the page number for next user-list API call if there is more pages available
       isNextpage && setPage(index => index + 1);
+
       setHasNext(isNextpage);
+
+      // resetting the loader
       setLoading(false);
+
     })
     .catch((e)=> {
       setError(e);

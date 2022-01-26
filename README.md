@@ -2,6 +2,8 @@
 
 The app shows the list of fake user and have load more users option having frontend using nextjs apollo client and backend using express faker GraphQL  apollo-client
 
+Copy the folder and inside the diretory follow the below steps
+
 ## Getting Started with docker-compose
 
 Prerequisite: Docker

@@ -21,9 +21,9 @@
     transition: .3s;
 }
 .loadMore:hover {
-    color: #457eff;
+    /*color: #457eff;
     background-color: #fff;
-    border: 1px solid #457eff;
+    border: 1px solid #457eff;*/
     text-decoration: none;
     cursor:pointer;
 }

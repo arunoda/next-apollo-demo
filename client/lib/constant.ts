@@ -1,6 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const QUERY = gql`
+
+
 query UsersList($count: Int, $page: Int) {
     UsersList(count: $count, page: $page) {
       users {

@@ -3,6 +3,7 @@ import { DEFAULT_COUNT,BATCH_COUNT } from './util/helper';
 
 // GraphQL: Resolvers
 // GraphQL query to get user data via faker
+
 export default {
     Query: {
       User: () => {

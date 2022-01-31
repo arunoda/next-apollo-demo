@@ -1,21 +1,18 @@
-const {
-  graphql,
-  GraphQLSchema,
-  GraphQLObjectType,
-  GraphQLString
-} = require('graphql')
-const faker = require('faker')
+const { gql } = require("apollo-server");
 
-module.exports = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: 'RootQueryType',
-    fields: {
-      name: {
-        type: GraphQLString,
-        resolve() {
-          return faker.name.findName()
-        }
-      }
-    }
-  })
-})
+const typeDefs = gql`
+  type Users {
+    name: String,
+    email: String,
+    phone: String,
+    address: String
+  }
+
+  type Query {
+    name: String!,
+    users: [Users],
+  }
+
+`;
+
+module.exports = typeDefs;

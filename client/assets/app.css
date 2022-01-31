@@ -1,0 +1,17 @@
+.card {
+  padding: 10px 10px 10px 20px;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+
+.card-container {
+  gap: 20px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.btn-container {
+  display: block;
+  margin-top: 25px;
+  text-align: center;
+}

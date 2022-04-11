@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST={"..\\node_modules\\next-apollo\\dist\\index.es.js -> @apollo/client/react/ssr":{"id":"..\\node_modules\\next-apollo\\dist\\index.es.js -> @apollo/client/react/ssr","files":["static/chunks/node_modules_apollo_client_react_ssr_index_js.js"]}}

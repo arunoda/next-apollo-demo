@@ -5,8 +5,9 @@ export const typeDefs = gql`
   type Address {
     building: String
     street: String
-    state: String
-    isoCountry: String
+    city: String
+    region: String
+    country: String
     postCode: String
   }
   type Phone {

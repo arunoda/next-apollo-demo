@@ -1,3 +1,4 @@
+import { grommet, Grommet } from 'grommet';
 import { ApolloProvider } from "@apollo/client";
 import { client } from "@/graphql/client";
 
@@ -5,7 +6,9 @@ import { client } from "@/graphql/client";
 function App({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />
+      <Grommet theme={grommet}>
+        <Component {...pageProps} />
+      </Grommet>
     </ApolloProvider>
   );
 }

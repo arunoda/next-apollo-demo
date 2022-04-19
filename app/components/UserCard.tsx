@@ -1,15 +1,26 @@
-import { useQuery } from '@apollo/client';
-import { GET_POSTS } from '@/graphql/queries'
+import { Grommet, grommet, Box, Card, CardBody, CardFooter, CardHeader } from 'grommet';
+import 'animate.css';
 
-export const UserCard ({ initialData }): JSX.Element => {
-  const { loading, error, data } = useQuery(GET_POSTS);
+type UserCardProps = {
+  content: User;
+}
+
+export const UserCard = ({ content }: UserCardProps): JSX.Element => {
+  const { id, name, phone, address } = content;
   return (
-    <>
-      <span>
-        {data.loading ? '..' : data.name}
-      </span>
-      <pre>{JSON.stringify(initialData, null, 2)}</pre>
-    </>
+       <Grommet theme={grommet}>
+       <Box pad="large" gap="medium" width="medium" data-test-id="user-card">
+         <Card pad="small" background="dark-1" gap="medium" className='animate__animated animate__pulse'>
+          <CardHeader>{`${name.firstName} ${name.lastName}`}</CardHeader>
+          <CardBody>
+            <p>{address.building}, {address.street}</p>
+            <p>{address.city}, {address.region}</p>
+            <p>{address.country}</p>
+          </CardBody>
+          <CardFooter>{phone.countryCode} {phone.number}</CardFooter>
+        </Card>
+        </Box>
+      </Grommet>
   )
 }
 

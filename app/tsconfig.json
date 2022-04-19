@@ -32,7 +32,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "__tests__/index.test.tsx"  ],
   "exclude": [
     "node_modules"
   ]

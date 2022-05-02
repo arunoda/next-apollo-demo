@@ -1,13 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import { navLinks } from "../utils/navdata";
-import ResponsiveGrid from './fetchData';
 import Person from './person';
-import Paper from '@mui/material/Paper';
-import { Pagination, Stack } from "@mui/material";
-import { useState } from 'react';
+import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
+
 const Home: NextPage = () => {
 
   return (
@@ -17,12 +14,19 @@ const Home: NextPage = () => {
         <meta name="description" content="Next Apollo Demo" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <AppBar position="static">
+        <Toolbar variant="dense">
+          <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Person Data (Nextjs App with Apollo)
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <main className={styles.main}>
         <Person />
       </main>
-      <footer className={styles.footer}>
-        <Pagination count={10} variant="outlined" color="primary" />
-      </footer>
     </div >
   )
 }

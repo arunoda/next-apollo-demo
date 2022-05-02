@@ -60,7 +60,8 @@ const Person = () => {
                         </Grid>
                     ))}
                 </Grid>
-                <Fab variant="extended" sx={fabStyle} size="medium" color="primary" aria-label="add" onClick={() => { loadMore() }}>
+                <Fab disabled={!pageInfo.hasNextPage} variant="extended" sx={fabStyle} size="medium" color="primary" aria-label="add"
+                    onClick={() => { loadMore() }}>
                     <AddIcon sx={{ mr: 1 }} /> Load More Profiles
                 </Fab>
             </Box >

@@ -1,0 +1,49 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\borka\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Python39\Scripts\;C:\Python39\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Java\jdk1.8.0_241\bin;C:\Users\vanda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\Scripts;C:\Users\borka\AppData\Roaming\Python\Python38\Scripts;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\borka\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\borka\AppData\Local\Programs\Python\Python38-32\;C:\Users\borka\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2019.3.3\bin;;C:\Users\borka\AppData\Local\Programs\Microsoft VS Code\bin;D:\Yogi\flutter\bin;C:\Program Files (x86)\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin;C:\Users\borka\AppData\Local\Android\Sdk\platform-tools;C:\Users\borka\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  14.17.6
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: D:\Yogi\UK\Publicis\next-apollo-demo\server\package.json: Unexpected token } in JSON at position 382
+      at JSON.parse (<anonymous>)
+      at C:\Users\borka\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\borka\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\borka\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "faker-graphql",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+      "start": "ts-node ./src/server.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "apollo-server-core": "^3.6.7",
+      "apollo-server-express": "^3.6.7",
+      "cors": "^2.8.5",
+      "express": "^4.18.0",
+      "graphql": "^16.4.0",
+      "ts-node": "^10.7.0",
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

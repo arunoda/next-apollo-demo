@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Person from './person';
+import Person from '../components/person';
 import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
-import MenuIcon from '@mui/icons-material/Menu';
+import FolderIcon from '@mui/icons-material/Folder';
 
 const Home: NextPage = () => {
 
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
       <AppBar position="static">
         <Toolbar variant="dense">
           <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-            <MenuIcon />
+            <FolderIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Person Data (Nextjs App with Apollo)

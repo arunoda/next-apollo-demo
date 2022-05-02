@@ -1,4 +1,4 @@
-export default function stringToColor(string: string) {
+export const stringToColor = (string: string) => {
   let hash = 0;
   let i;
 
@@ -16,4 +16,10 @@ export default function stringToColor(string: string) {
   /* eslint-enable no-bitwise */
 
   return color;
-}
+};
+
+export const fabStyle = {
+  position: "absolute",
+  bottom: 16,
+  right: 16,
+};

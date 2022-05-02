@@ -2,15 +2,3 @@
   padding: 1rem;
   background: #E7EBF0;
 }
-
-.main {
-  padding: 2rem 0;
-  max-height: 80vh;
-  overflow-y: auto;
-  /* flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  background: #E7EBF0;
-}

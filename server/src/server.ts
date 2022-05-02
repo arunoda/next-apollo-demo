@@ -1,4 +1,4 @@
-import { ApolloServerPluginLandingPageDisabled } from "apollo-server-core";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import { ApolloServer } from "apollo-server-express";
 import express from "express";
 import http from "http";
@@ -11,7 +11,7 @@ async function listen(port: string) {
   const corsOptions = {
     origin: [
       "http://localhost:3000",
-      "https://nextjs-apollo-5szlld6zy-yogigoodman.vercel.app",
+      `https://nextjs-apollo-2tvjvfepu-yogigoodman.vercel.app`,
       "https://studio.apollographql.com",
     ],
   };
@@ -21,7 +21,7 @@ async function listen(port: string) {
   });
   const server = new ApolloServer({
     schema: schemaWithMocks,
-    plugins: [ApolloServerPluginLandingPageDisabled()],
+    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   });
   await server.start();
 

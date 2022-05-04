@@ -1,0 +1,38 @@
+$color: #555;
+$main-background: #5b9eed;
+$white: #fff;
+$white-two: #aaa;
+
+.list {
+  background: $white;
+  border-radius: 2px;
+  list-style: none;
+  padding: 10px 20px;
+}
+
+.list-item {
+  &:last-child {
+    border-bottom: none;
+  }
+  &-content {
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+    h4,
+    p {
+      flex: 1 1 160px;
+    }
+    h4 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    p {
+      margin-top: 5px;
+      color: $white-two;
+    }
+    .info {
+      width: 33.333%;
+    }
+  }
+}

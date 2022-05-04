@@ -18,7 +18,10 @@ export default function Users() {
         <div className="list" data-testid="user-list">
           {Array.isArray(userlist) &&
             userlist.map((user, index) => (
-              <section key={`user-list-${index + 1}`} className="list-item">
+              <section
+                key={`user-list-${index + 1}`}
+                className="list-item card"
+              >
                 <div className="list-item-content">
                   <h4 className="info">{user.name}</h4>
                   <p className="info">{user.email}</p>

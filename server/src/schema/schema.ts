@@ -4,13 +4,11 @@ import TYPEDEFS from './types';
 import RESOLVERS from '../resolvers/resolvers';
 
 // GraphQL: Schema
-
 export default new ApolloServer({
   typeDefs: TYPEDEFS,
   resolvers: RESOLVERS,
   playground: {
-    // endPoint:`https://graphql-faker-express.herokuapp.com/graphql`,
-    endpoint: `http://localhost:5000/graphql`, // this is graphQL client
+    endpoint: `http://localhost:5000/graphql`, // graphQL client
     settings: {
       'editor.theme': 'light',
     },

@@ -1,8 +1,8 @@
 import faker from 'faker';
 import { DEFAULT_COUNT, BATCH_COUNT } from '../util/helper';
 
-// GraphQL: Resolvers
-// GraphQL query to get user data via faker
+/* GraphQL: Resolvers
+GraphQL query to get user data via faker */
 
 export default {
   Query: {
@@ -26,7 +26,6 @@ export default {
       }));
 
       // fetching records as per batchCount
-
       const hasNextPage =
         count !== DEFAULT_COUNT && page * BATCH_COUNT < DEFAULT_COUNT;
       return { users, hasNextPage };

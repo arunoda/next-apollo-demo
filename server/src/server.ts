@@ -1,5 +1,5 @@
 import express from 'express';
-import myGraphQLSchema from './schema/schema';
+import graphQLSchema from './schema/schema';
 
 import cors from 'cors';
 
@@ -7,14 +7,14 @@ const APP = express();
 
 APP.use(cors());
 
-// For Apollo Server Express 3.0 and above,
-// we need to define an async function for Apollo initialization as before
+/* For Apollo Server Express 3.0 and above,
+we need to define an async function for Apollo initialization as before */
 
 async function startServer() {
-  await myGraphQLSchema.start();
+  await graphQLSchema.start();
 
   // Middleware: GraphQL
-  myGraphQLSchema.applyMiddleware({
+  graphQLSchema.applyMiddleware({
     app: APP,
   });
 }
@@ -24,7 +24,6 @@ startServer();
 const PORT = 5000 || process.env;
 
 // Express: Listener
-
 APP.listen(PORT, () => {
   // tslint:disable-next-line:no-console
   console.log(

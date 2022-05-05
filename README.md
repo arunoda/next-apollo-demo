@@ -1,7 +1,7 @@
 ![NPM version](https://img.shields.io/badge/npm-v7.23.0-blue.svg)
 ![Node version](https://img.shields.io/badge/node-v14-blue.svg)
 
-# NEXT.JS WITH GRAPHQL & APOLLO
+# NEXT JS WITH GRAPHQL & APOLLO
 
 Welcome to the Next GraphQL Apollo Demo
 
@@ -58,7 +58,7 @@ npm run test
 
 `http://localhost:3000/user-list`,
 
-### run Cypress for end-to-end testing
+### Cypress for end-to-end testing
 
 ```
 npm run cypress
@@ -74,19 +74,14 @@ npm run cypress
 npm i docker-compose
 ```
 
-- Command for docker-compose to build/rebuild and run
+### Steps to run app locally
 
 ```
 docker-compose up --build
-```
-
-Command for docker-compose to run
-
-```
 docker-compose up
 ```
 
-After success docker UP -
+After success docker UP
 
 - App or UI will run on `http://localhost:3000`
 - GraphQL server will run on `http://localhost:5000/graphql`

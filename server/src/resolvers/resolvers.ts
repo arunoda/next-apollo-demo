@@ -16,7 +16,7 @@ export default {
       };
       return data;
     },
-    UsersList(parent: any, { count = DEFAULT_COUNT, page = 1 }) {
+    UsersList({ count = DEFAULT_COUNT, page = 1 }) {
       const users = new Array(count).fill(0).map((_) => ({
         name: faker.name.findName(),
         email: faker.internet.email(),
@@ -25,12 +25,10 @@ export default {
         image: faker.image.avatar(),
       }));
 
-      // fetching records as per batchCount
+      // fetching records as per batch-count
       const hasNextPage =
         count !== DEFAULT_COUNT && page * BATCH_COUNT < DEFAULT_COUNT;
       return { users, hasNextPage };
     },
   },
 };
-
-// export default resolver;

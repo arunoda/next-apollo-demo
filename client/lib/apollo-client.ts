@@ -2,7 +2,7 @@ import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { offsetLimitPagination } from '@apollo/client/utilities';
 import { uri } from './constant';
 
-//init apollo client
+//Init Apollo Client
 const client = new ApolloClient({
   uri,
   cache: new InMemoryCache({

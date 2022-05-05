@@ -1,7 +1,7 @@
 import { render, act } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
 import UserList from '../pages/user-list';
-import { userMocks, QUERY, errMessage } from '../lib/constant';
+import { userMocks } from '../lib/constant';
 
 describe('UserList', () => {
   it('renders UserList with API data', async () => {

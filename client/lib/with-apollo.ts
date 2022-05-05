@@ -1,9 +1,9 @@
-import { HttpLink } from '@apollo/client'
+import { HttpLink } from '@apollo/client';
 
 const apolloConfig = {
   link: new HttpLink({
-    uri: '/graphql'
-  })
-}
+    uri: '/graphql',
+  }),
+};
 
-export default apolloConfig
+export default apolloConfig;

@@ -1,0 +1,45 @@
+$color: #555;
+$main-background: #5b9eed;
+$white: #fff;
+$white-two: #aaa;
+
+.list {
+  background-color: rgb(31, 31, 31);
+  border-radius: 2px;
+  list-style: none;
+  padding: 10px 20px;
+}
+
+.card {
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  background-color: #4b4b4b;
+}
+
+.list-item {
+  &:last-child {
+    border-bottom: none;
+  }
+  &-content {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+    h4,
+    p {
+      flex: 1 1 160px;
+    }
+    h4 {
+      font-size: 18px;
+      color: $white;
+    }
+    p {
+      margin-top: 25px;
+      color: $white;
+    }
+    .info {
+      width: 33.333%;
+    }
+  }
+}

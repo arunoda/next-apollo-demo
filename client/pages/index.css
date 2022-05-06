@@ -1,0 +1,11 @@
+.mainCard {
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 25%);
+  background-color: #4b4b4b;
+}
+
+.tileCard {
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 25%);
+  background-color: #4b4b4b;
+}

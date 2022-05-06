@@ -27,11 +27,10 @@ exports.default = {
                 address: faker_1.default.address.streetAddress(),
                 image: faker_1.default.image.avatar(),
             }));
-            // fetching records as per batchCount
+            // fetching records as per batch-count
             const hasNextPage = count !== helper_1.DEFAULT_COUNT && page * helper_1.BATCH_COUNT < helper_1.DEFAULT_COUNT;
             return { users, hasNextPage };
         },
     },
 };
-// export default resolver;
 //# sourceMappingURL=resolvers.js.map

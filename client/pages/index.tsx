@@ -10,6 +10,7 @@ const Page: NextPage = () => {
       <Head>
         <title>Next GraphQL Apollo Demo</title>
         <meta name="description" content="Next Apollo Demo" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className={styles.tileCard}>
         Welcome to Next GraphQL Apollo Demo: User List

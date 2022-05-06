@@ -16,7 +16,7 @@ export default {
       };
       return data;
     },
-    UsersList({ count = DEFAULT_COUNT, page = 1 }) {
+    UsersList(parent: any, { count = DEFAULT_COUNT, page = 1 }) {
       const users = new Array(count).fill(0).map((_) => ({
         name: faker.name.findName(),
         email: faker.internet.email(),

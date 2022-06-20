@@ -1,0 +1,28 @@
+.container {
+  padding: 1rem;
+  width: 99%;
+  height: 100%;
+  position: absolute;
+  background: #e7ebf0;
+}
+
+.tileCard {
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 25%);
+  background-color: #4b4b4b;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.linkList {
+  list-style: none;
+  padding: 1rem;
+}
+
+.individualList {
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 25%);
+  margin-bottom: 15px;
+}

@@ -1,7 +1,7 @@
 FROM node:14.16.0
 
 LABEL version="1.0"
-LABEL description="This is the base docker image for client app."
+LABEL description="docker image for client app."
 
 WORKDIR /app
 

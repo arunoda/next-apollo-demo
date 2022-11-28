@@ -1,0 +1,18 @@
+version: '1'
+services:
+  backend:
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    image: "server"
+    ports:
+      - "5000:5000"
+  frontend:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    image: "client"
+    ports:
+      - "3000:3000"
+    links:
+      - "backend"

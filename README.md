@@ -1,9 +1,11 @@
 # Next Appollo Demo
 
-> This is an sample application using Appollo/GraphQL/Next.js/ReactJS.
+> This is an sample application using Appollo/GraphQL/Next.js/ReactJS/TypeScript.
 
 ## Useful Links
-
+* [Apollo Client](https://www.apollographql.com/docs/react/)
+* [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
+* [Next.js Docs](https://nextjs.org/docs/getting-started)
 * [Run in local](http://localhost:3000)
 
 ### Commads to execute locally

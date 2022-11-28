@@ -1,13 +1,14 @@
 import React, {
-  useEffect, useContext, FC, useState,
+  useEffect, useContext, FC, useState, Suspense,
 } from 'react';
 import { useQuery } from '@apollo/client';
 import { AppContext } from '../context/context';
 import { Types } from '../reducers/reducer';
-import Users from '../components/Users/Users';
 import { batchCount, QUERY } from '../lib/constant';
 
 type Props = unknown;
+
+const Users = React.lazy(() => import('../components/Users/Users'));
 
 const UserInfo: FC<Props> = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -60,13 +61,16 @@ const UserInfo: FC<Props> = () => {
   }, []);
 
   return (
-    <Users
-      userlist={userlist}
-      loading={loading}
-      error={error}
-      next={next}
-      handleLoadMore={handleLoadMore}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <Users
+        userlist={userlist}
+        loading={loading}
+        error={error}
+        next={next}
+        handleLoadMore={handleLoadMore}
+      />
+    </Suspense>
+
   );
 };
 

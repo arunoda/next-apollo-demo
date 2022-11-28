@@ -14,39 +14,32 @@ type Props = {
 const Users: FC<Props> = ({
   userlist, loading, handleLoadMore, error, next,
 }: Props) => (
-  <div>
+  <section>
     {!error && !loading && (
-    <div className="container" data-testid="user-list">
-      {Array.isArray(userlist)
-              && userlist.map((user, index) => (
-                <div
-                  key={`user-list-${index + 1}`}
-                  className="card"
-                >
-                  <div className="list-item-content">
-                    <h4 className="info">{user.name}</h4>
-                    <p className="info">{user.email}</p>
-                    <p className="info">{user.address}</p>
-                  </div>
-                </div>
-              ))}
-    </div>
+      <div className="container" data-testid="user-list">
+        {Array.isArray(userlist)
+          && userlist.map((user, index) => (
+            <div
+              key={`user-list-${index + 1}`}
+              className="card"
+            >
+              <div className="content">
+                <h4>{user.name}</h4>
+                <p>{user.email}</p>
+                <p>{user.address}</p>
+              </div>
+            </div>
+          ))}
+      </div>
     )}
     {!error && loading && 'Loading ...'}
     {!loading && !error && next && (
-    <input type="button" className={styles.loadMore} onClick={handleLoadMore} value="Load More" />
+      <input type="button" className={styles.loadMore} onClick={handleLoadMore} value="Load More" />
     )}
     {error && errMessage}
 
     <style jsx>
       {`
-        .list {
-          background-color: rgb(31, 31, 31);
-          border-radius: 2px;
-          list-style: none;
-          padding: 10px 20px;
-        }
-        
         .container {
           display: flex;
           flex-wrap: wrap;
@@ -62,18 +55,16 @@ const Users: FC<Props> = ({
           background-color: white;
         }
         
-        .list-item-content {
+        .content {
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
             padding: 1em;
             margin: auto;
-        }
-        
+        } 
       `}
-
     </style>
-  </div>
+  </section>
 );
 
 export default React.memo(Users);

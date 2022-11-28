@@ -19,9 +19,7 @@ const Page: NextPage = () => (
       </h1>
 
       <p className={styles.description}>
-        Get started by editing
-        {' '}
-        <code>pages/index.js</code>
+        Get started !!
       </p>
 
       <div className={styles.grid}>

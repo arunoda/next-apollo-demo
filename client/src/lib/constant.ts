@@ -14,7 +14,7 @@ export const QUERY = gql`
   }
 `;
 
-export const uri = 'http://localhost:4000/graphql';
+export const uri = process.env.NODE_ENV === 'production' ? 'https://next-apollo-js.herokuapp.com/graphql' : 'http://localhost:4000/graphql';
 export const errMessage = 'Something went wrong, Please try again !!';
 export const batchCount = 20;
 export const userMocks = [

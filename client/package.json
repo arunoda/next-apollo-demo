@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next",
     "test": "jest",
-    "lint": "eslint src/**/*.{ts,tsx} -f table --fix"
+    "lint": "eslint src/**/*.{ts,tsx} -f table --fix",
+    "build": "next build",
+    "start": "next start -p $PORT"
   },
   "engines": {
     "node": "14.x",

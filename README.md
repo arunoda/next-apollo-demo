@@ -11,6 +11,11 @@
 ## Application URL (Hosted via Heroku)
 * https://next-appollo-js-client.herokuapp.com/
 
+### Install locally
+
+* Install from client & server folder seperately - `npm i`
+
+
 ### Commads to execute locally
 
 * Run locally (client) - `npm run dev`

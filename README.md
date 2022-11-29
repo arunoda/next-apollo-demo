@@ -8,6 +8,9 @@
 * [Next.js Docs](https://nextjs.org/docs/getting-started)
 * [Run in local](http://localhost:3000)
 
+## Application URL (Hosted via Heroku)
+* https://next-appollo-js-client.herokuapp.com/
+
 ### Commads to execute locally
 
 * Run locally (client) - `npm run dev`

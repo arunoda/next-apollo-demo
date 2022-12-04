@@ -8,9 +8,11 @@ App is use to display user name and address on the browser.
 - npm 6+
 - Node 14+
 
-# clone
+# Clone
 
 git clone https://github.com/gursimrann99/next-apollo-demo.git
+
+### Local Setup
 
 # INSTALL
 
@@ -28,3 +30,11 @@ Into the server or client directory --> yarn start or npm start
 
 -- client currently running on http://localhost:3000
 -- graphql server running on http://localhost:5000/graphql
+
+## Docker Start
+
+- docker build -t "react-app" ./client/
+- docker build -t "express-server" ./server/
+- docker-compose up
+
+http://localhost:3000/

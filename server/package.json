@@ -12,8 +12,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-graphql": "^0.12.0",
-    "graphql": "^16.6.0",
-    "hystrixjs": "^0.2.0"
+    "graphql": "^16.6.0"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",

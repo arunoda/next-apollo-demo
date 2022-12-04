@@ -332,11 +332,6 @@ express@^4.18.2:
     utils-merge "1.0.1"
     vary "~1.1.2"
 
-fast-stats@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/fast-stats/-/fast-stats-0.0.3.tgz#650af963c3ff85c496a3610f20d40cd4c164594d"
-  integrity sha512-GCDJBJEDccRpAuMcVe+OfMnovhXNPMTuiBl08ZysjcJdSfNNHn1exukCHGNp3q+vbKP2ZuDDhi6w03ad1vFTBw==
-
 fill-range@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/fill-range/-/fill-range-7.0.1.tgz#1919a6a7c75fe38b2c7c77e5198535da9acdda40"
@@ -460,13 +455,6 @@ http-errors@2.0.0:
     setprototypeof "1.2.0"
     statuses "2.0.1"
     toidentifier "1.0.1"
-
-hystrixjs@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/hystrixjs/-/hystrixjs-0.2.0.tgz#6094bbeb884e9de06a17b610797f47e670cb1069"
-  integrity sha512-IuyxI6MotAwZUfAdBVc7YRo79tu0RMqjdTGkw8DR7M/loWAjvQFLoqbBeUqpvOMiNesJ/E0NpsHYIDMwd396Ew==
-  dependencies:
-    fast-stats "0.0.3"
 
 iconv-lite@0.4.24:
   version "0.4.24"

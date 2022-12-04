@@ -36,7 +36,7 @@ export default function MyApp({ Component, pageProps }) {
       <div className="heading">
         {router.pathname !== "/" && (
           <span className="">
-            <FiArrowLeft className="icon" onClick={backToHome} />
+            <FiArrowLeft className="back" onClick={backToHome} />
           </span>
         )}
         <h3>Welcome to JavaScript World</h3>

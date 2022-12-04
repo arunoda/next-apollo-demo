@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const { graphqlHTTP } = require("express-graphql");
 
-const schema = require("./schema");
+const schema = require("./schema/schema");
 const port = process.env.PORT || 5000;
 
 const app = express();
@@ -16,7 +16,9 @@ app.use(
     graphiql: true,
   })
 );
-app.listen(port, (err) => {
+const server = app.listen(port, (err) => {
   if (err) throw err;
   console.log(`Graphql Server started on port ${port}`);
 });
+
+module.exports = server;

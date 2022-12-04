@@ -38,3 +38,7 @@ Into the server or client directory --> yarn start or npm start
 - docker-compose up
 
 http://localhost:3000/
+
+### Tests
+
+- Into the server or client directory --> yarn run test or npm run dev

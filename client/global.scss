@@ -6,13 +6,13 @@
   width: 100%;
   padding: 1em 0;
   background-color: midnightblue;
-  .icon {
+  .back {
     font-size: x-large;
     color: #eedaaf;
     cursor: pointer;
   }
   @media (min-width: 600px) {
-    .icon {
+    .back {
       font-size: xxx-large;
     }
   }

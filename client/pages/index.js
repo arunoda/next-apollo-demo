@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Page = () => (
   <>
-    <h5 className="sub-heading">
+    <h5 className="sub-heading" data-testid="sub-heading">
       Looking for Users Address?
       <Link href="/users">
         <a>Click Me!!</a>

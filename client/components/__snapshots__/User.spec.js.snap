@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User renders correct tree when particular props are sent: <li className="user">
+        <figure role="usercard">
+          <p>singh</p>
+          <span># 
+          88 
+          ,</span>
+          <br />
+          <span>city</span>
+          <br />
+          <span />
+        </figure>
+      </li> 1`] = `
+<li
+  className="user"
+>
+  <figure
+    role="usercard"
+  >
+    <p>
+      singh
+    </p>
+    <span>
+      #
+      88
+      , 
+    </span>
+    <br />
+    <span>
+      city
+    </span>
+    <br />
+    <span />
+  </figure>
+</li>
+`;
+
+exports[`User should renders correct tree when particular props are sent: <li className="user">
+        <figure role="usercard">
+          <p>singh</p>
+          <span># 
+          88 
+          ,</span>
+          <br />
+          <span>city</span>
+          <br />
+          <span />
+        </figure>
+      </li> 1`] = `
+<li
+  className="user"
+>
+  <figure
+    role="usercard"
+  >
+    <p>
+      singh
+    </p>
+    <span>
+      #
+      88
+      , 
+    </span>
+    <br />
+    <span>
+      city
+    </span>
+    <br />
+    <span />
+  </figure>
+</li>
+`;
+
+exports[`User should renders correct tree when particular props are sent: <li className="user">
+        <figure>
+          <p>singh</p>
+          <span># 
+          88 
+          ,</span>
+          <br />
+          <span>city</span>
+          <br />
+          <span />
+        </figure>
+      </li> 1`] = `
+<li
+  className="user"
+>
+  <figure>
+    <p>
+      singh
+    </p>
+    <span>
+      #
+      88
+      , 
+    </span>
+    <br />
+    <span>
+      city
+    </span>
+    <br />
+    <span />
+  </figure>
+</li>
+`;

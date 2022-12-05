@@ -9,6 +9,7 @@ const limit = parseInt(process.env.limit) || 20;
 const UsersList = () => {
   const [users, setUsers] = useState([]);
   const [showMore, setshowMore] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
 
   const { loading, error, fetchMore } = useQuery(GET_USERS, {
     variables: { offset: 0, limit: limit },
@@ -19,14 +20,16 @@ const UsersList = () => {
 
   const fetchMoreUsers = async () => {
     const currentLength = users.length || 0;
+    setLoadingMore(true);
     const moreUsers = await fetchMore({
       variables: {
         offset: currentLength,
         limit: currentLength + limit,
       },
     });
+    setLoadingMore(false);
     moreUsers.data.users.length < limit && setshowMore(false);
-    setUsers([...users, ...moreUsers.data.users]);
+    // setUsers([...users, ...moreUsers.data.users]);
   };
 
   if (loading) return <Loader />;
@@ -39,13 +42,14 @@ const UsersList = () => {
           {users.map((client) => (
             <User client={client} key={client.id} />
           ))}
-          {showMore && (
+          {showMore && !loadingMore && (
             <button className="load-more" onClick={fetchMoreUsers}>
               Load More
             </button>
           )}
         </ul>
       )}
+      {loadingMore && <Loader />}
     </>
   );
 };

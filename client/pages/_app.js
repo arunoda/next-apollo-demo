@@ -11,6 +11,9 @@ const cache = new InMemoryCache({
       keyFields: [],
       fields: {
         users: {
+          read(existing) {
+            if (existing) return existing;
+          },
           merge(existing = [], incoming = []) {
             return [...existing, ...incoming];
           },

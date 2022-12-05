@@ -6,6 +6,7 @@ const {
   GraphQLList,
   GraphQLInt,
 } = require("graphql");
+const usersData = require("../utils/utils");
 
 const query = new GraphQLObjectType({
   name: "RootQueryType",
@@ -14,7 +15,8 @@ const query = new GraphQLObjectType({
       type: new GraphQLList(UserType),
       args: { offset: { type: GraphQLInt }, limit: { type: GraphQLInt } },
       async resolve(parent, args) {
-        const userList = await UserRequest();
+        // const userList = await UserRequest(); //removed https call to jsonplaceholder.typicode.com users data
+        const userList = await usersData.getUsers();
         if (args.limit) {
           const start = args.offset;
           const end = args.limit;

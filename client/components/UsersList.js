@@ -4,7 +4,7 @@ import { GET_USERS } from "../queries/usersQueries";
 import User from "./User";
 import Loader from "./Loader";
 
-const limit = parseInt(process.env.limit) || 4;
+const limit = parseInt(process.env.limit) || 20;
 
 const UsersList = () => {
   const [users, setUsers] = useState([]);

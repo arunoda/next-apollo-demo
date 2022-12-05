@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLInt, GraphQLString } = require("graphql");
+const { GraphQLObjectType, GraphQLID, GraphQLString } = require("graphql");
 
 var AddressType = new GraphQLObjectType({
   name: "Address",
@@ -12,7 +12,7 @@ var AddressType = new GraphQLObjectType({
 const UsersType = new GraphQLObjectType({
   name: "Users",
   fields: () => ({
-    id: { type: GraphQLInt },
+    id: { type: GraphQLID },
     name: { type: GraphQLString },
     email: { type: GraphQLString },
     phone: { type: GraphQLString },

@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 COPY ./package.json ./
 COPY ./yarn.lock ./
 
-ENV limit=4 \
+ENV limit=20 \
     user_url=http://localhost:5000/graphql?
 
 RUN yarn install

@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const { graphqlHTTP } = require("express-graphql");
 
-const schema = require("./schema/schema");
+const schema = require("./usersSchema/schema");
 const usersData = require("./utils/utils");
 const port = process.env.PORT || 5000;
 

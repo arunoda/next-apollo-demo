@@ -1,5 +1,5 @@
 const { GraphQLObjectType, GraphQLString, GraphQLInt } = require("graphql");
-const UsersType = require("../../Schema/users-type");
+const UsersType = require("../../usersSchema/users-type");
 
 describe("Testing Users schema", () => {
   it("should fetch fields integrity and match the object type", () => {

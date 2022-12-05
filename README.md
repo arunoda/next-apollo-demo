@@ -16,29 +16,31 @@ git clone https://github.com/gursimrann99/next-apollo-demo.git
 
 # INSTALL
 
-###### ->Client
+# Client
 
 yarn install or npm install
 
-##### ->Server
+# Server
 
 yarn install or npm install
 
 # START
 
-Into the server or client directory --> yarn start or npm start
+- Into the server or client directory
+  --> yarn start or npm start
 
--- client currently running on http://localhost:3000
--- graphql server running on http://localhost:5000/graphql
+- client running on http://localhost:3000
+- graphql server running on http://localhost:5000/graphql
 
 ## Docker Start
 
 - docker build -t "react-app" ./client/
-- docker build -t "express-server" ./server/
+- docker build -t "api-server" ./server/
 - docker-compose up
 
 http://localhost:3000/
 
-### Tests
+## Tests
 
-- Into the server or client directory --> yarn run test or npm run dev
+- Into the server or client directory
+  --> yarn run test or npm run dev

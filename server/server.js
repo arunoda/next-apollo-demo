@@ -1,20 +1,27 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const { graphqlExpress, graphiqlExpress } = require('apollo-server-express')
-const myGraphQLSchema = require('./schema')
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const { graphqlHTTP } = require("express-graphql");
+
+const schema = require("./usersSchema/schema");
+const usersData = require("./utils/utils");
+const port = process.env.PORT || 5000;
 
 const app = express();
+usersData.setUsers();
 
-// to access graphql API from the client side
-app.use(cors())
-// bodyParser is needed just for POST.
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: myGraphQLSchema }));
-// for the graphiql interface
-app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+app.use(cors());
 
-const port = process.env.PORT || 5000
-app.listen(port, (err) => {
-  if (err) throw err
-  console.log(`Graphql Server started on: http://localhost:${port}`)
-})
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema,
+    graphiql: true,
+  })
+);
+const server = app.listen(port, (err) => {
+  if (err) throw err;
+  console.log(`Graphql Server started on port ${port}`);
+});
+
+module.exports = server;

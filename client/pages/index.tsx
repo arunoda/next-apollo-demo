@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 data-testid="heading">Names & addresses</h1>
+        <h1 data-testid="heading" style={{ textAlign: "center" }}>Names & addresses</h1>
         <ClientOnly>
           <Names />
         </ClientOnly>

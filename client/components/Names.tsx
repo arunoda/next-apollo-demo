@@ -57,7 +57,7 @@ export default function Names() {
             <Grid data-testid="grid" container spacing={{ xs: 2, md: 5 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 {data.users.edges.map((info) => (
                     <Grid item xs={2} sm={4} md={4} key={info.node.fullName + info.node.phoneNumber}>
-                        <Card sx={{ maxWidth: 275, mb: 3, ml: 3, color: "white", background: "grey" }}>
+                        <Card sx={{ maxWidth: 275, mb: 3, ml: 3, color: "white", background: 'linear-gradient(to right bottom, #430089, #82ffa1)' }}>
                             <CardContent>
                                 <Typography variant="h5" component="div">
                                     {info.node.fullName}

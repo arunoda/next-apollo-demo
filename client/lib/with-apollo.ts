@@ -13,7 +13,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { relayStylePagination } from "@apollo/client/utilities";
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
+  uri: "https://young-wave-58350.herokuapp.com/graphql",
   cache: new InMemoryCache({
     typePolicies: {
       Query: {

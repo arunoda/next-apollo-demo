@@ -11,12 +11,12 @@ services:
       - ./client:/home/app/client
       - /home/app/client/node_modules
       - /home/app/client/.next
-  api:
+  db:
     ports:
       - 4000:4000
     build:
       context: server
-      dockerfile: Dockerfile.api
+      dockerfile: Dockerfile.web
     volumes:
       - ./server:/home/app/server
       - /home/app/server/node_modules

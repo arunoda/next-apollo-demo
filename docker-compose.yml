@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+  web:
+    ports:
+      - 3000:3000
+    build:
+      context: client
+      dockerfile: Dockerfile.web
+    volumes:
+      - ./client:/home/app/client
+      - /home/app/client/node_modules
+      - /home/app/client/.next
+  api:
+    ports:
+      - 4000:4000
+    build:
+      context: server
+      dockerfile: Dockerfile.api
+    volumes:
+      - ./server:/home/app/server
+      - /home/app/server/node_modules

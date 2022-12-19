@@ -1,0 +1,16 @@
+FROM node:18
+
+ENV PORT 3000
+
+# Create app directory
+RUN mkdir -p /home/app/client && chown -R node:node /home/app/client
+WORKDIR /home/app/client
+COPY --chown=node:node . .
+
+USER node
+
+RUN yarn install
+RUN yarn next:build
+
+EXPOSE 3000
+CMD [ "yarn", "start" ]

@@ -33,7 +33,6 @@ const LoadMoreUsers = ({ users }: Props) => {
   })
 
   const loadMoreData = () => {
-    console.log('load more data')
     let queryVariables = {
       limit: 10,
       offset,

@@ -8,6 +8,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import {resolvers} from "./resolvers/resolver.js";
 import {typeDefs} from "./schema.js";
+import {corsOptions} from "./config/corsOptions.js";
 
 interface MyContext {
     token?: string;
@@ -36,7 +37,7 @@ await server.start();
 // and our expressMiddleware function.
 app.use(
     '/',
-    cors<cors.CorsRequest>(),
+    cors<cors.CorsRequest>(corsOptions),
     bodyParser.json(),
     // expressMiddleware accepts the same arguments:
     // an Apollo Server instance and optional configuration options

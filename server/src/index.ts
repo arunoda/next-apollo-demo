@@ -12,7 +12,7 @@ import {typeDefs} from "./schema.js";
 interface MyContext {
     token?: string;
 }
-
+const PORT = process.env.PORT || 4000;
 // Required logic for integrating with Express
 const app = express();
 // Our httpServer handles incoming requests to our Express app.
@@ -46,5 +46,5 @@ app.use(
 );
 
 // Modified server startup
-await new Promise<void>((resolve) => httpServer.listen({ port: 4000 }, resolve));
-console.log(`🚀 Server ready at http://localhost:4000/`);
+await new Promise<void>((resolve) => httpServer.listen({ port: PORT }, resolve));
+console.log(`🚀 Server ready at http://localhost:${PORT}/`);

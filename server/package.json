@@ -6,7 +6,7 @@
   "scripts": {
     "generate": "graphql-codegen --config codegen.yml",
     "compile": "tsc",
-    "start": "npm run compile && node ./dist/index.js"
+    "start": "yarn run compile && node ./dist/index.js"
   },
   "dependencies": {
     "@apollo/server": "^4.3.1",

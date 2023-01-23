@@ -44,30 +44,35 @@ const LoadMoreUsers = ({ users }: Props) => {
   }
 
   return (
-    <div className="row">
-      {usersData.map((user, index) => {
-        return (
-          <div
-            className="card user-card"
-            data-testid={'user-info-' + index}
-            key={index}
-            data-cy="user-card"
-          >
-            <div className="card-body">
-              <h5 className="card-title">{user.name}</h5>
-              <Link target="_blank" href={'mailto:' + user.email}>
-                <h6 className="card-subtitle mb-2 text-muted"> {user.email}</h6>
-              </Link>
-              <Link href={'tel:' + user.phoneNumber}>{user.phoneNumber}</Link>
-              <div>
-                <div>{user.address?.street}</div>
-                <div>{user.address?.city}</div>
-                <div>{user.address?.zipCode}</div>
+    <div>
+      <div className="row">
+        {usersData.map((user, index) => {
+          return (
+            <div
+              className="card user-card"
+              data-testid={'user-info-' + index}
+              key={index}
+              data-cy="user-card"
+            >
+              <div className="card-body">
+                <h5 className="card-title">{user.name}</h5>
+                <Link target="_blank" href={'mailto:' + user.email}>
+                  <h6 className="card-subtitle mb-2 text-muted">
+                    {' '}
+                    {user.email}
+                  </h6>
+                </Link>
+                <Link href={'tel:' + user.phoneNumber}>{user.phoneNumber}</Link>
+                <div>
+                  <div>{user.address?.street}</div>
+                  <div>{user.address?.city}</div>
+                  <div>{user.address?.zipCode}</div>
+                </div>
               </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
       {error ? (
         <div>No more users available</div>
       ) : (

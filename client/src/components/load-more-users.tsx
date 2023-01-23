@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { User } from '@/types/auto-generated'
 import { useLazyQuery } from '@apollo/client'
-import { getUsersQuery } from '@/queries/users.query'
+import { getUsersQuery } from '../queries/users.query'
 
 type Props = {
   users: User[]
@@ -46,7 +46,7 @@ const LoadMoreUsers = ({ users }: Props) => {
     <div>
       {usersData.map((user, index) => {
         return (
-          <div key={index}>
+          <div data-testid={'user-info-' + index} key={index}>
             <div>
               <div> {user.name}</div>
               <div> {user.email}</div>

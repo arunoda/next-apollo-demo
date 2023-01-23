@@ -6,7 +6,9 @@ import Name from '@/components/name'
 export default function Home({ name }: { name: string }) {
   return (
     <div>
-      Welcome, <Name name={name} />
+      <h1 data-testid="welcome-text">
+        Welcome, <Name name={name} />
+      </h1>
       <br />
       <br />
       <Link href="/about">About</Link>
@@ -16,11 +18,7 @@ export default function Home({ name }: { name: string }) {
 }
 export async function getServerSideProps() {
   const { data } = await client.query({
-    query: gql`
-      query name {
-        name
-      }
-    `,
+    query: getNameQuery,
   })
 
   return {
@@ -29,3 +27,9 @@ export async function getServerSideProps() {
     },
   }
 }
+
+export const getNameQuery = gql`
+  query name {
+    name
+  }
+`

@@ -15,6 +15,11 @@ export const resolvers = {
                     name: faker.name.fullName(),
                     email: faker.internet.email(),
                     phoneNumber: faker.phone.number(),
+                    address: {
+                        street: faker.address.street(),
+                        city: faker.address.city(),
+                        zipCode: faker.address.zipCode(),
+                    }
                 });
             }
             return users;

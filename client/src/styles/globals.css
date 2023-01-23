@@ -1,0 +1,10 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.md-container {
+  padding-top: 2rem;
+}
+
+.user-card {
+  width: 22rem;
+  margin: 1rem;
+}

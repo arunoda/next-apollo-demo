@@ -5,20 +5,27 @@ import { User } from '@/types/auto-generated'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import LoadMoreUsers from '@/components/load-more-users'
 import { getUsersQuery } from '@/queries/users.query'
+import Head from 'next/head'
+import Layout from '@/components/layout'
 
 export default function Users({
   users,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <ApolloProvider client={client}>
-      <div>
-        <h1>Users Page</h1>
-        <br />
-        <br />
-        <LoadMoreUsers users={users} />
-        <Link href="/">Go Back</Link>
-      </div>
-    </ApolloProvider>
+    <>
+      <Head>
+        <title>Users</title>
+      </Head>
+      <Layout>
+        <ApolloProvider client={client}>
+          <div>
+            <h1 className="mb-3">Users Page</h1>
+            <Link href="/">Go Back</Link>
+            <LoadMoreUsers users={users} />
+          </div>
+        </ApolloProvider>
+      </Layout>
+    </>
   )
 }
 

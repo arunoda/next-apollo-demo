@@ -46,7 +46,11 @@ const LoadMoreUsers = ({ users }: Props) => {
     <div>
       {usersData.map((user, index) => {
         return (
-          <div data-testid={'user-info-' + index} key={index}>
+          <div
+            data-testid={'user-info-' + index}
+            key={index}
+            data-cy="user-card"
+          >
             <div>
               <div> {user.name}</div>
               <div> {user.email}</div>
@@ -64,7 +68,9 @@ const LoadMoreUsers = ({ users }: Props) => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <button onClick={() => loadMoreData()}>Load more</button>
+            <button data-cy="load-more" onClick={() => loadMoreData()}>
+              Load more
+            </button>
           )}
         </>
       )}

@@ -6,16 +6,13 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import LoadMoreUsers from '@/components/load-more-users'
 import { getUsersQuery } from '@/queries/users.query'
 
-interface Props {
-  users: User[]
-}
 export default function Users({
   users,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <ApolloProvider client={client}>
       <div>
-        Users Page
+        <h1>Users Page</h1>
         <br />
         <br />
         <LoadMoreUsers users={users} />
@@ -25,9 +22,9 @@ export default function Users({
   )
 }
 
-export const getServerSideProps: GetServerSideProps<{ users: User[] }> = async (
-  context
-) => {
+export const getServerSideProps: GetServerSideProps<{
+  users: User[]
+}> = async () => {
   const { data } = await client.query({
     query: getUsersQuery,
     variables: {

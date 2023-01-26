@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import client from '../lib/apollo-client'
 import { gql } from '@apollo/client'
 import Name from '@/components/name'
 import Head from 'next/head'
 import Layout from '@/components/layout'
+import client from "@/lib/apollo-client";
 
 export default function Home({ name }: { name: string }) {
   return (

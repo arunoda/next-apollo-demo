@@ -13,6 +13,7 @@ const customJestConfig = {
     '^@/components/(.*)$': '<rootDir>/src/components/$1',
 
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
+    '^@/queries/(.*)$': '<rootDir>/src/queries/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
 }

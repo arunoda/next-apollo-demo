@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { User } from '@/types/auto-generated'
 import { useLazyQuery } from '@apollo/client'
-import { getUsersQuery } from '../queries/users.query'
+import { getUsersQuery } from '@/queries/users.query'
 import Link from 'next/link'
 
 type Props = {
@@ -58,7 +58,6 @@ const LoadMoreUsers = ({ users }: Props) => {
                 <h5 className="card-title">{user.name}</h5>
                 <Link target="_blank" href={'mailto:' + user.email}>
                   <h6 className="card-subtitle mb-2 text-muted">
-                    {' '}
                     {user.email}
                   </h6>
                 </Link>

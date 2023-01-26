@@ -51,7 +51,7 @@ describe('Load more users', () => {
     )
     const userText = screen.getByTestId('user-info-0')
     expect(userText).toHaveTextContent(
-      'Marta Kuhn Wilmer34@hotmail.com 640.512.6044 x207'
+      'Marta KuhnWilmer34@hotmail.com640.512.6044 x207Marilou MillsWest Sacramento66473'
     )
   })
 })

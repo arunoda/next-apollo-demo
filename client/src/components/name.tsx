@@ -1,5 +1,4 @@
-const Name = ({ name }: { name: string }) => {
-  return <span>{name}</span>
-}
+const Name = ({ name }: { name: string }) => <span>{name}</span>
+
 
 export default Name

@@ -1,0 +1,37 @@
+.load_more {
+    margin: 8px;
+    padding: 16px 0;
+    display: block;
+  }
+  
+  .load_more_button {
+    display: flex;
+    justify-content: center;
+    margin: 12px auto;
+    border: 1px solid;
+    background-color: #0cac96;
+    cursor: pointer;
+    padding: 0 30px;
+    width: 304px;
+    height: 48px;
+    line-height: 48px;
+    color: black;
+    font-family: mns-london, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  
+  .load_more_button:hover {
+    background-color: #097e8dfa !important;
+  }
+  
+  .load_more_text {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  @media(max-width: 468px) {
+    .load_more_button {
+      display: block;
+    }
+  }

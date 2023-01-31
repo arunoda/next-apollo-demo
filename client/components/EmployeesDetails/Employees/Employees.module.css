@@ -1,0 +1,67 @@
+.employee_container {
+  width: 100%;
+  height: auto;
+  display: block!important;
+}
+
+.employee_text {
+  color: #097e8dfa;
+  font-size: 25px;
+  margin-top: 40px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.row {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: center;
+}
+
+@media(max-width: 768px) {
+  .row {
+    width: 100%;
+  }
+}
+
+.employee_card {
+  background-color: #ffffff;
+  width: 270px;
+  height: 250px;
+  margin: 20px 10px 10px 10px;
+}
+
+@media(max-width: 468px) {
+  .employee_card {
+    width: 150px;
+    height: 250px;
+  }
+}
+
+.employee-content {
+  padding: 15px;
+}
+
+.desc {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.desc h2 {
+  color: rgb(12, 172, 150);
+  font-size: 20px;
+}
+
+.desc p {
+  font-size: 13px;
+  line-height: 1.3em;
+  margin-top: -10px;
+  color: #000000;
+}

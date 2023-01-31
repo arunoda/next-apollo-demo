@@ -1,16 +1,23 @@
 {
-  "name": "faker-graphql",
+  "name": "@mands/next-apollo-demo-master",
   "version": "1.0.0",
-  "license": "MIT",
-  "scripts": {
-    "start": "node server"
-  },
+  "description": "",
+  "main": "index.js",
   "dependencies": {
-    "apollo-server-express": "^1.2.0",
-    "body-parser": "^1.18.2",
-    "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "faker": "^4.1.0",
-    "graphql": "^0.11.7"
-  }
+    "@apollo/server": "^4.3.2",
+    "casual": "^1.6.2",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.4"
+  },
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

@@ -1,7 +1,8 @@
-import TestRenderer from "react-test-renderer";
 import { MockedProvider } from "@apollo/client/testing";
 import EmployeesDetails from "./EmployeesDetails";
 import { gql } from "@apollo/client";
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 const query = gql`
   query Employees($limit: Int!, $offset: Int!) {
@@ -14,7 +15,7 @@ const query = gql`
   }
 `;
 
-const mocks = [
+const successMock = [
   {
     request: {
       query: query,
@@ -36,17 +37,67 @@ const mocks = [
   },
 ];
 
-it("displays a loading message when fetching", () => {
-  const component = TestRenderer.create(
-    <MockedProvider mocks={mocks} addTypename={false}>
-      <EmployeesDetails
-        employees={[
-          { name: "XYZ", address: "ABCD", phone: "012345", email: "xyz@gmail" },
-        ]}
-      />
-    </MockedProvider>
-  );
+const errorMock = [
+  {
+    request: {
+      query: query,
+      variables: {
+      },
+    },
+    result: {
+      error: {
+      }
+    },
+  },
+];
 
-  const tree = component.toJSON();
-  expect(tree.children).toEqual(["Loading ..."]);
+describe("EmployeesDetails", () => {
+  it("displays a loading message when fetching", async () => {
+    render(
+      <MockedProvider mocks={successMock} addTypename={false}>
+        <EmployeesDetails
+          employees={[
+            { name: "XYZ", address: "ABCD", phone: "012345", email: "xyz@gmail" },
+          ]}
+        />
+      </MockedProvider>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText('Loading ...')).toBeInTheDocument();
+    })
+  });
+  it("displays an error message when on failure", () => {
+    render(
+      <MockedProvider mocks={errorMock} addTypename={false}>
+        <EmployeesDetails
+          employees={[
+            { name: "XYZ", address: "ABCD", phone: "012345", email: "xyz@gmail" },
+          ]}
+        />
+      </MockedProvider>
+    );
+
+    waitFor(() => {
+      const button = screen.findByText('Load more');
+      fireEvent.click(button);
+      expect(screen.queryByText('Error')).toBeInTheDocument();
+    })
+  });
+
+  it("displays the response on success", async () => {
+    render(
+      <MockedProvider mocks={successMock} addTypename={false}>
+        <EmployeesDetails
+          employees={[
+            { name: "XYZ", address: "ABCD", phone: "012345", email: "xyz@gmail" },
+          ]}
+        />
+      </MockedProvider>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText('XYZ')).toBeInTheDocument();
+    })
+  })
 });

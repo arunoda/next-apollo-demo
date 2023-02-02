@@ -1,4 +1,4 @@
-const graphql = require('graphql');
+const graphql = require('./schemaa/');
 const {
   GraphQLObjectType,
   GraphQLSchema,
@@ -7,7 +7,8 @@ const {
   
 } =graphql
 
-const userdata=require('./userDataCasual');
+const userdata=require('./schemaa/userDummyData')
+
 const userType= new GraphQLObjectType({
   name:'user',
   fields:()=>({
@@ -35,5 +36,3 @@ const RootQuery= new GraphQLObjectType({
 module.exports = new GraphQLSchema({
   query:RootQuery
 })
-
-

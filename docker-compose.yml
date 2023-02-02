@@ -1,0 +1,10 @@
+version: '3'
+services: 
+  node-server:
+      build:
+         context: ./server
+      ports:
+         - "4000:4000"
+      container_name: express 
+      volumes:
+        - .:/server

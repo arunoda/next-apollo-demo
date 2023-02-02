@@ -1,21 +1,39 @@
+const graphql = require('graphql');
 const {
-  graphql,
-  GraphQLSchema,
   GraphQLObjectType,
-  GraphQLString
-} = require('graphql')
-const faker = require('faker')
+  GraphQLSchema,
+  GraphQLString,
+  GraphQLList,
+  
+} =graphql
 
-module.exports = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: 'RootQueryType',
-    fields: {
-      name: {
-        type: GraphQLString,
-        resolve() {
-          return faker.name.findName()
-        }
-      }
-    }
+const userdata=require('./userDataCasual');
+const userType= new GraphQLObjectType({
+  name:'user',
+  fields:()=>({
+    name:{type:GraphQLString},
+    address:{type:GraphQLString},
+    phone:{type:GraphQLString},
+    email:{type:GraphQLString},
   })
 })
+
+const RootQuery= new GraphQLObjectType({
+  name: 'AllUsers',
+  fields: {
+    User: {
+      type: new GraphQLList(userType),
+      resolve(parent,args) {
+        let data=userdata;
+        console.log(data)
+        return data;
+      }
+    }
+  }
+})
+
+module.exports = new GraphQLSchema({
+  query:RootQuery
+})
+
+

@@ -1,5 +1,6 @@
 import ApolloRequestClientProvider from '../lib/ApolloRequestClient'
-import '../sass-styling/main.scss'
+import './styles/main.scss'
+import './styles/variables.scss'
 
 function MyApp({ Component, pageProps }) {
     return <ApolloRequestClientProvider>

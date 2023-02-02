@@ -1,8 +1,9 @@
 #basic image
-FROM node:alpine
+FROM node:latest
 
-RUN mkdir -p /usr/app
-WORKDIR /usr/app
+
+
+WORKDIR /Users/adeolaadekoyejo/Desktop/next-apollo-demo/client
 
 COPY package*.json yarn.lock ./
 
@@ -10,5 +11,5 @@ RUN yarn install
 COPY . .
 # RUN yarn build
 
-EXPOSE 4000
-CMD ["yarn","run","dev"]
+EXPOSE 3000
+CMD ["yarn","dev"]

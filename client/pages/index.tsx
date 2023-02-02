@@ -3,8 +3,33 @@ import Head from 'next/head'
 import Button from '../components/Button/Button'
 import SkeletonLoader from '../components/Skeleton/Skeleton'
 import UserCard from '../components/UserCard/UserCard'
+import { useQuery, gql } from '@apollo/client'
+import Errorboundary from './errorboundary'
+
+const ALL_USERS = gql`
+query AllUsers{
+  user{
+   name
+   address
+   email
+   phone
+ }
+}
+`
 
 const Home = () => {
+  const { loading, error, data } = useQuery(ALL_USERS);
+
+  console.log(data);
+
+  // const showTheFirstTwent = data.slice(0,20);
+
+  const loadMoreData = () => {
+
+  }
+
+  if (loading) return <SkeletonLoader />
+  if (error) return <Errorboundary />
 
   return (
     <div>
@@ -16,15 +41,15 @@ const Home = () => {
 
       <MainWrapper>
         <Grid>
-          <UserCard/>
-          <UserCard/>
-          <UserCard/>
-          <UserCard/>
-          <UserCard/>
-          <UserCard/>
-          <SkeletonLoader/>
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <SkeletonLoader />
         </Grid>
-        <Button/>
+        <Button />
       </MainWrapper>
     </div>
   )

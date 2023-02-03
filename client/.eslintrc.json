@@ -7,6 +7,7 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
+        "plugin:cypress/recommended",
         "plugin:@typescript-eslint/recommended",
         "prettier" ,
         "plugin:jsx-a11y/recommended"
@@ -20,6 +21,7 @@
     },
     "plugins": [
         "react",
+       "cypress",
         "@typescript-eslint",
         "jsx-a11y"
     ],
@@ -28,6 +30,7 @@
         "camelcase": "error",
         "no-console": 2,
         "spaced-comment": "error",
+        "jest/expect-expect": "off",
         "no-duplicate-imports": "error"
     }
 }

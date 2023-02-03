@@ -1,21 +1,25 @@
 {
-  "name": "faker-graphql",
+  "name": "server-two",
   "version": "1.0.0",
-  "license": "MIT",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
   "scripts": {
-    "start": "node server"
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "apollo-server-express": "^1.2.0",
-    "body-parser": "^1.18.2",
-    "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "express-graphql": "^0.12.0",
+    "@apollo/server": "^4.3.2",
     "casual": "^1.6.2",
-    "faker": "^4.1.0",
-    "graphql": "^0.11.7"
+    "faker": "^6.6.6",
+    "graphql": "^16.6.0"
   },
   "devDependencies": {
-    "graphql-cli": "4.1.0"
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.5"
   }
 }

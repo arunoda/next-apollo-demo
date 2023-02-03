@@ -20,6 +20,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "graphql": "^15.4.0",
     "identity-obj-proxy": "^3.0.0",
+    "msw": "^0.49.1",
     "next": "^13.1.6",
     "next-with-apollo": "^5.1.1",
     "node-sass": "^8.0.0",
@@ -33,6 +34,9 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
+    "cypress": "4.0.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-cypress": "^2.10.3",
     "typescript": "^4.9.5"
   }
 }

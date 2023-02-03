@@ -1,15 +1,18 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import styled from '@emotion/styled';
+import { userAgent } from "next/server";
 
-
-const UserCard = () => {
+interface UserCardProp {
+    user: any
+}
+const UserCard: FunctionComponent<UserCardProp> = ({user}) => {
     return (
-        <Card className="card">
+        <Card className="card" data-test-id="user">
             <div className="card__details">
-              <h4 className="card__details-name">Adeola Adekoyejo</h4>
-              <p className="card__details-email">Email: adekoyejoadeola@gmail.com</p>
-              <p className="card__details-phone">Phone: 08151627843</p>
-              <p className="card__details-address">Address: 5 crescent, otun akute.</p>
+              <h4 className="card__details-name">{user.name}</h4>
+              <p className="card__details-email">Email: {user.email}</p>
+              <p className="card__details-phone">Phone: {user.phone}</p>
+              <p className="card__details-address">{user.address}</p>
             </div>
         </Card>
     )

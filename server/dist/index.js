@@ -6,15 +6,16 @@ var casual = require('casual');
 // your data.
 const typeDefs = `#graphql
 # This "user" type defines the queryable fields: 'name', 'address', 'email, phone and id.
-type user {
-  id: ID,
+type User {
+  id: String,
   name: String,
   address: String,
   email: String,
   phone: String
 }
 type Query {
-  users: [user]
+  users: [User],
+  get(from: Int): Int
 }
 `;
 casual.define('user', function (id) {
@@ -28,16 +29,14 @@ casual.define('user', function (id) {
 });
 const allUsers = () => {
     let data = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 2000; i++) {
         data.push(casual.user(i));
     }
     return data;
 };
 const resolvers = {
     Query: {
-        users: () => {
-            allUsers();
-        }
+        users: () => allUsers(),
     },
 };
 // The ApolloServer constructor requires two parameters: your schema

@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/server": "^4.3.2",
+    "apollo-server-lambda": "^3.11.1",
     "casual": "^1.6.2",
     "faker": "^6.6.6",
     "graphql": "^16.6.0"

@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import styled from '@emotion/styled';
-import { userAgent } from "next/server";
 
 interface UserCardProp {
     user: any
@@ -12,7 +11,7 @@ const UserCard: FunctionComponent<UserCardProp> = ({user}) => {
               <h4 className="card__details-name">{user.name}</h4>
               <p className="card__details-email">Email: {user.email}</p>
               <p className="card__details-phone">Phone: {user.phone}</p>
-              <p className="card__details-address">{user.address}</p>
+              <p className="card__details-address">address: {user.address}</p>
             </div>
         </Card>
     )

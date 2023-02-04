@@ -1,6 +1,9 @@
 import styled from '@emotion/styled'
 import Head from 'next/head'
-import Users from './users'
+import { lazy, Suspense } from 'react'
+import SkeletonLoader from '../components/Skeleton/Skeleton'
+
+const UsersComponent = lazy(() => import("./users"))
 
 const Home = () => {
   return (
@@ -11,7 +14,9 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainWrapper>
-       <Users/>
+        <Suspense fallback={<div><SkeletonLoader/></div>}>
+          <UsersComponent />
+        </Suspense>
       </MainWrapper>
     </div>
   )

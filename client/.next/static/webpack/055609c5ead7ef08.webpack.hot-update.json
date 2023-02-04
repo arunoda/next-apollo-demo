@@ -1,1 +1,0 @@
-{"c":["pages/index","webpack"],"r":[],"m":["./components/Button/Button.tsx","./components/Skeleton/Skeleton.tsx","./components/UserCard/UserCard.tsx","./pages/errorboundary.tsx","./pages/users.tsx","./queries/getUsers.ts"]}

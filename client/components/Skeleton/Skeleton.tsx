@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 const SkeletonLoader = () => {
     return (
-        <Skeleton className="skeleton">
+        <Skeleton className="skeleton" data-testid="skeleton-loader">
              <div className="skeleton__details">
                <h4 className="skeleton__details-name"></h4>
               <p className="skeleton__details-email"></p>

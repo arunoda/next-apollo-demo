@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "@apollo/client": "^3.2.5",
+    "@apollo/react-testing": "^4.0.0",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@testing-library/jest-dom": "^5.16.5",

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import styled from '@emotion/styled';
 
+export interface ButtonProps{
+    onClick: ()=>void
+}
 
-const Button = () => {
+const Button: FunctionComponent<ButtonProps>  = ({onClick}) => {
     return (
-        <ButtonWrapper type="button">
+        <ButtonWrapper type="button" data-testid="more-button" onClick={onClick}>
             Load more...
         </ButtonWrapper>
     )

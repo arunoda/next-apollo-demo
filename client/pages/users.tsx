@@ -11,7 +11,6 @@ import { useState } from 'react'
 const Users = () => {
     const { loading, error, data } = useQuery(ALL_USERS);
     const [page, setPage] = useState<number>(0);
-    const [hasMore, setHasMore] = useState<boolean>(true);
     const numberPerPage = 20;
 
 
@@ -30,18 +29,16 @@ const Users = () => {
         return <NoUser/>
     }
 
-    console.log(data?.users)
-
     return (
         <>
-            <Grid>
+            <Grid data-testid="user-grid">
                 {
-                    data?.users?.slice(0, 10).map((user: any)=>{
-                        <UserCard key={user.id} user={user} />
-                    })
+                    data?.users?.slice(0, 10).map((user: any, i)=>(
+                        <UserCard key={i} user={user} />
+                    ))
                 }
             </Grid>
-            <Button />
+            <Button onClick={()=>loadMoreUsers()} />
         </>
 
     )

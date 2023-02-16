@@ -2,7 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import { graphqlHTTP } from 'express-graphql';
-import myGraphQLSchema from './schema'
+import { schema, resolvers } from './schema';
 
 const app = express();
 
@@ -10,7 +10,8 @@ const app = express();
 app.use(cors())
 // bodyParser is needed just for POST.
 app.use('/graphql', bodyParser.json(), graphqlHTTP({
-  schema: myGraphQLSchema,
+  schema,
+  rootValue: resolvers,
   graphiql: true,
 }));
 

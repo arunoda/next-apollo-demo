@@ -1,23 +1,25 @@
 import {
-  graphql,
-  GraphQLSchema,
-  GraphQLObjectType,
-  GraphQLString
+  buildSchema
 } from 'graphql'
 
-import casual from 'casual'
+import data from './data'
 
-
-export default new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: 'RootQueryType',
-    fields: {
-      name: {
-        type: GraphQLString,
-        resolve() {
-          return casual.name
-        }
-      }
+export const schema = buildSchema(`
+    input UserInput {
+        email: String!
+        name: String!
     }
-  })
-})
+
+    type User {
+        name: String!
+        address: String!
+    }
+
+    type Query {
+        getUsers: [User]
+    }
+`)
+
+export const resolvers = {
+  getUsers: () => data
+}

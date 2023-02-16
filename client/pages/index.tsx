@@ -4,11 +4,15 @@ import Users from '../components/Users'
 
 const Page = () => (
   <div>
-    Welcome, <Users />
+    Welcome
     <br/><br/>
-    <Link href="/about">About</Link>
 
+    <ul>
+      <li><Link href="/about">About</Link></li>
+      <li><Link href="/users">Users</Link></li>
+    </ul>
+    
   </div>
 )
 
-export default withApollo({ssr: false})(Page)
+export default Page

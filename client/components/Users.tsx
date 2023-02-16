@@ -11,20 +11,20 @@ const GET_USERS = gql`
     }
   }`;
 
-const Users = () => {
+const Users = ({users}) => {
 
   const { loadMore, data, loading} = useInfiniteScroll<IUser>({
     query: GET_USERS,
     field: 'getUsers'
   })
 
-  return (<div>
-    <ol>
-      {data?.map(u => <User key={u.name} {...u} />)}
-    </ol>
+  return (<main>
+            <div className='container'>
+              {data?.map(u => <User key={u.name} {...u} />)}
+            </div>
 
-    <button disabled={loading} onClick={loadMore}>Load More</button>
-  </div>)
+            <button disabled={loading} onClick={loadMore}>Load More</button>
+  </main>)
  
 }
  

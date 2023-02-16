@@ -47,6 +47,8 @@ button {
 
 .card h3 {
     color: #333;
+    padding-bottom: .5rem;
+    border-bottom: 1px #ccc solid;
 }
 
 .card p {

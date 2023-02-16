@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import withApollo from '../lib/with-apollo'
-import Users from '../components/Users'
+import Users from '../components/Grid'
 
 const Page = () => (
   <div>

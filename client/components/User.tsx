@@ -1,8 +1,5 @@
 import React from 'react'
-export interface IUser {
-  name: string
-  address: string
-}
+import { IUser } from '../pages/users'
 
 const User = ({name, address}: IUser) => {
 

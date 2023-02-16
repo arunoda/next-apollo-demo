@@ -5,9 +5,10 @@ import {
 import data from './data'
 
 export const schema = buildSchema(`
-    input UserInput {
-        email: String!
-        name: String!
+
+    input Pagination {
+      offset: Int
+      limit: Int
     }
 
     type User {
@@ -16,10 +17,21 @@ export const schema = buildSchema(`
     }
 
     type Query {
-        getUsers: [User]
+        getUsers(pagination: Pagination): [User]
     }
 `)
 
 export const resolvers = {
-  getUsers: () => data
+  getUsers: (args) => {
+
+    const {pagination} = args
+    
+    if(!pagination) return data
+
+    const {offset = 0, limit = 20} = pagination
+
+    return data.slice(offset, offset+limit)
+
+
+  }
 }

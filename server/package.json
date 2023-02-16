@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsx watch server",
-    "build": "tsc"
+    "start": "node dist/server",
+    "build": "tsc -p ."
   },
   "dependencies": {
     "body-parser": "^1.20.1",

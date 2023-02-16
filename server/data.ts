@@ -22,6 +22,7 @@ const populate = (): Array<User> => {
     const users: Array<User> = []
 
     for(let i = 0; i < USER_LENGTH; i++) {
+        //@ts-ignore
         users.push(casual.user)
     }
 

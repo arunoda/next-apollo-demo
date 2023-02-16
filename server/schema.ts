@@ -26,8 +26,10 @@ export const resolvers = {
 
     const {pagination} = args
     
+    // Just because pagination is optional, return all the data
     if(!pagination) return data
 
+    // Using default offset and limit if not provided by the user
     const {offset = 0, limit = 20} = pagination
 
     return data.slice(offset, offset+limit)

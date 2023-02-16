@@ -3,9 +3,31 @@ import { useReducer, useEffect } from 'react'
 
 const RECORDS_PER_FETCH = 20
 
+/**
+ * Definiing the input and output types of the hook
+ */
+type TUseInfiniteScroll<T> = (args: {
+    query: DocumentNode,
+    field: string
+}) => {
+        data: Array<T>,
+        loadMore: () => void,
+        loading: boolean,
+        error: object
+}
+
+/**
+ * The reducer for the state managed by the hook. Currently, it only has a LOAD_MORE action.
+ * 
+ * @param state 
+ * @param {type: string, payload: T} 
+ * @returns 
+ */
 const reducer = (state, {type, payload}) => {
     
     switch(type) {
+
+        //append the new records to the existing records
         case 'LOAD_MORE':            
             return {
                 data: [...state.data, ...payload]
@@ -24,21 +46,17 @@ const reducer = (state, {type, payload}) => {
  * @param query 
  * @returns 
  */
-const useInfiniteScroll = ({
+const useInfiniteScroll = <T extends object>({
     query,
     field
-}:
-{
-    query: DocumentNode,
-    field: string
-}) => {
+}): TUseInfiniteScroll<T> => {
 
     // To manage the state of the caller component.
     const [state, dispatch] = useReducer(reducer, {
         data: []
     })
 
-    const {data, refetch, error, loading} = useQuery(query, {
+    const {data, refetch, error, loading} = useQuery<T>(query, {
         variables: {
             pagination: {
                 offset: 0,
@@ -69,7 +87,7 @@ const useInfiniteScroll = ({
     }, [data])
     
     return {
-        data: state.data,
+        data: state.data as Array<T>,
         loadMore,
         loading,
         error

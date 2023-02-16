@@ -3,17 +3,9 @@ import { useReducer, useEffect } from 'react'
 
 const RECORDS_PER_FETCH = 20
 
-/**
- * Definiing the input and output types of the hook
- */
-type TUseInfiniteScroll<T> = (args: {
+interface TInfinitScrollParams {
     query: DocumentNode,
     field: string
-}) => {
-        data: Array<T>,
-        loadMore: () => void,
-        loading: boolean,
-        error: object
 }
 
 /**
@@ -49,7 +41,7 @@ const reducer = (state, {type, payload}) => {
 const useInfiniteScroll = <T extends object>({
     query,
     field
-}): TUseInfiniteScroll<T> => {
+}: TInfinitScrollParams)=> {
 
     // To manage the state of the caller component.
     const [state, dispatch] = useReducer(reducer, {
@@ -74,7 +66,7 @@ const useInfiniteScroll = <T extends object>({
         refetch({
             pagination: {
                 offset: state.data.length,
-                limit: state.data.length + RECORDS_PER_FETCH
+                limit: RECORDS_PER_FETCH
             }
         })
     }

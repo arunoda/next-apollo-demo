@@ -4,8 +4,7 @@ import Users from '../components/Users'
 
 const Page = () => (
   <div>
-    Welcome
-    <br/><br/>
+    <div>Welcome</div>
 
     <ul>
       <li><Link href="/about">About</Link></li>

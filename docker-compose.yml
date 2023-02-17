@@ -1,0 +1,15 @@
+services:
+  api:
+    container_name: api
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - 5001:5001
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    external: false

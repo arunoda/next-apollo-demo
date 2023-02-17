@@ -3,7 +3,7 @@ import React from 'react'
 interface IGrid<T> {
   items: Array<T>
   loading: boolean;
-  loadMore: () => Array<T>
+  loadMore: () => void
   getGridItem: (item: T) => React.ReactNode
 }
 

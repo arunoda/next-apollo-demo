@@ -1,8 +1,11 @@
 import express from 'express'
+import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import { graphqlHTTP } from 'express-graphql';
 import { schema, resolvers } from './schema';
+
+dotenv.config()
 
 const app = express();
 
@@ -15,7 +18,7 @@ app.use('/graphql', bodyParser.json(), graphqlHTTP({
   graphiql: true,
 }));
 
-const port = process.env.PORT || 5001
+const port = process.env.PORT || 5000
 app.listen(port, () => {
   console.log(`Graphql Server started on: http://localhost:${port}`)
 })

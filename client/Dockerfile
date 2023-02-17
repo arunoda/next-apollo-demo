@@ -11,8 +11,6 @@ FROM base AS runner
 WORKDIR /usr
 COPY package.json ./
 COPY --from=builder /usr .
+
 RUN yarn install --only-production
-
-EXPOSE 3000
-
 CMD yarn start

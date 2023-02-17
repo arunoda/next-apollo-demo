@@ -15,5 +15,4 @@ COPY package.json ./
 RUN yarn install --only=production
 COPY --from=builder /usr/dist .
 RUN yarn global add pm2
-EXPOSE 5001
 CMD ["pm2-runtime", "server.js"]

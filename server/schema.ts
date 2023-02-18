@@ -2,7 +2,7 @@ import {
   buildSchema
 } from 'graphql'
 
-import data from './data'
+import data, { getName } from './data'
 
 export const schema = buildSchema(`
 
@@ -18,6 +18,7 @@ export const schema = buildSchema(`
 
     type Query {
         getUsers(pagination: Pagination): [User]
+        name: String
     }
 `)
 
@@ -33,7 +34,6 @@ export const resolvers = {
     const {offset = 0, limit = 20} = pagination
 
     return data.slice(offset, offset+limit)
-
-
-  }
+  },
+  name: () => getName()
 }

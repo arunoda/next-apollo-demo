@@ -29,4 +29,6 @@ const populate = (): Array<User> => {
     return users
 }
 
+export const getName = () => casual.name
+
 export default populate()

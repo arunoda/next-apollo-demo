@@ -15,11 +15,33 @@ button {
     border: none;
 }
 
+button:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
 .container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
     flex-wrap: wrap;
     justify-content: center;
+}
+
+@media (max-width: 920px) {
+    .container {
+        grid-template-columns: repeat(3, 33%);
+    }
+}
+
+@media (max-width: 620px) {
+    .container {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        grid-template-columns: repeat(1, 100%);
+    }
 }
 
 .card {
@@ -37,13 +59,6 @@ button {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     font-size: 110%;
 }
-
-@media (max-width: 620px) {
-    .card {
-      width: 500px;
-      max-width: none;
-    }
-  }
 
 .card h3 {
     color: #333;

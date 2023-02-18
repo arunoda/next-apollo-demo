@@ -3,14 +3,28 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node server"
+    "dev": "tsx watch server",
+    "start": "node dist/server",
+    "build": "tsc -p ."
   },
   "dependencies": {
-    "apollo-server-express": "^1.2.0",
-    "body-parser": "^1.18.2",
-    "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "faker": "^4.1.0",
-    "graphql": "^0.11.7"
+    "body-parser": "^1.20.1",
+    "casual": "^1.6.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "faker": "^6.6.6",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/faker": "^6.6.9",
+    "@types/node": "^18.13.0",
+    "tsc": "^2.0.4",
+    "tsx": "^3.12.3",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": "19.x"
   }
 }

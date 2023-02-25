@@ -1,9 +1,6 @@
 import Head from "next/head";
-import { gql } from "@apollo/client";
-import { client } from "../../lib/apollo-client";
-import Link from "next/link";
+import Header from "@Components/components/header";
 
-// @ts-ignore
 export default function Home() {
   return (
     <>
@@ -13,20 +10,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <main className="w-screen h-screen p-10">
         <h1 className="text-3xl font-bold">
           Welcome to Nick Morgan's Technical test.
         </h1>
         <div className="flex gap-2 items-center py-5">
           <p className="text-xl">
-            Please visit the employee's list page here:{" "}
+            Please visit the employee's list page via the navigation bar under
+            "Employees".
           </p>
-          <Link
-            href="/employees"
-            className="text-md text-white bg-blue-500 px-6 py-2 rounded-full hover:bg-blue-700"
-          >
-            Here
-          </Link>
         </div>
       </main>
     </>

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { gql } from "@apollo/client";
 import { client } from "../../../lib/apollo-client";
 import Head from "next/head";
 import { Employee } from "@Components/entities/employee";
+import TeamCard from "@Components/components/team-card";
+import Button from "@Components/components/button";
+import Header from "@Components/components/header";
 
 interface EmployeesPageProps {
   data: {
@@ -11,7 +14,12 @@ interface EmployeesPageProps {
 }
 
 const Employees: React.FC<EmployeesPageProps> = ({ data }) => {
+  const [loadMoreLimit, setLoadMoreLimit] = useState(20);
   const { employees } = data;
+
+  const handleOnClick = () => {
+    setLoadMoreLimit((current) => current + 20);
+  };
 
   return (
     <>
@@ -21,24 +29,22 @@ const Employees: React.FC<EmployeesPageProps> = ({ data }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        {employees.slice(0, 10).map((employee: any) => {
-          return (
-            <div key={employee.id}>
-              <h2>first name: {employee.firstName}</h2>
-              <h2>last name: {employee.lastName}</h2>
-              <h2>email: {employee.email}</h2>
-              <h2>phone number: {employee.phoneNumber}</h2>
-              <div>
-                <h2>Address:</h2>
-                <h2>{employee.address.firstLine}</h2>
-                <h2>{employee.address.street}</h2>
-                <h2>{employee.address.city}</h2>
+      <Header />
+      <main className="flex flex-col items-center gap-10 py-10">
+        <div className="grid grid-cols-4 gap-2">
+          {employees.slice(0, loadMoreLimit).map((employee: Employee) => {
+            return (
+              <div key={employee.id}>
+                <TeamCard employee={employee} />
               </div>
-              <br />
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        <Button
+          label="Load More"
+          className="bg-blue-500 rounded-full text-white px-8 py-4 hover:bg-blue-700 hover:animate-pulse"
+          onClick={handleOnClick}
+        />
       </main>
     </>
   );

@@ -1,14 +1,14 @@
 export type Employee = {
   id: number;
-  firstName: String;
-  lastName: String;
-  email: String;
-  phoneNumber: String;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
   address: Address;
 };
 
 type Address = {
-  firstLine: String;
-  street: String;
-  city: String;
+  firstLine: string;
+  street: string;
+  city: string;
 };

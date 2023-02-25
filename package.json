@@ -1,0 +1,17 @@
+{
+  "name": "next-apollo-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/arunoda/next-apollo-demo.git",
+  "author": "Nick Morgan <nick@interstellaragency.co.uk>",
+  "license": "MIT",
+  "scripts": {
+    "setup": "yarn && concurrently --kill-others \"cd client && yarn\" \"cd server && yarn\"",
+    "dev": "concurrently --kill-others \"cd client && yarn dev\" \"cd server && yarn dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "npm-check-updates": "^16.7.9",
+    "prettier": "^2.8.4"
+  }
+}

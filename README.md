@@ -92,6 +92,7 @@ I also took the liberty of updating the server too:
 - - The first to see if all the elements on the home page existed.
 - - the second to see if we navigated to the Employees page when the button was clicked.
 - - The third test to ensure when we clicked `Load More` 20 new profiles were loaded into our grid.
+- **IMPORTANT** In order to run these tests on cypress you need to have `yarn dev` running on the project root.
 
 ### Cypress Happy Path Pass:
 ![Cypress Happy Path Success](./assets/happy-path.png)

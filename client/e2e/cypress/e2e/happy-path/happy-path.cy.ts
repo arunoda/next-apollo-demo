@@ -1,3 +1,5 @@
+export default {};
+
 context("Happy Path", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000");

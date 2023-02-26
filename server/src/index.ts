@@ -25,7 +25,9 @@ const server = async () => {
 
   app.use(
     "/graphql",
-    cors<cors.CorsRequest>(),
+    cors<cors.CorsRequest>({
+      origin: [`${process.env.CORS_ORIGIN}`],
+    }),
     bodyParser.json(),
     expressMiddleware(server, {
       context: async ({ req }) => ({ token: req.headers.token }),

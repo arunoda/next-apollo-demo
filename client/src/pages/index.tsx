@@ -13,12 +13,12 @@ export default function Home() {
       <Header />
       <main className="w-screen h-screen p-10" data-testid="home-container">
         <h1 className="text-3xl font-bold" data-testid="home-title">
-          Welcome to Nick Morgan's Technical test.
+          Welcome to Nick Morgan&apos;s Technical test.
         </h1>
         <div className="flex gap-2 items-center py-5">
           <p className="text-xl" data-testid="home-subtitle">
-            Please visit the employee's list page via the navigation bar under
-            "Employees".
+            Please visit the employee&apos;s list page via the navigation bar
+            under &quot;Employees&quot;.
           </p>
         </div>
       </main>

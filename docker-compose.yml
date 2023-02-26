@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  server:
+    container_name: next-apollo-server
+    restart: unless-stopped
+    image: next-apollo-server:1.0.0
+    build:
+      context: server
+      target: production
+      dockerfile: Dockerfile
+    environment:
+      - PORT=8000
+      - CORS_ORIGIN=http://localhost:3000
+    ports:
+      - 8000:8000
+    networks:
+      - shared-network
+  client:
+    container_name: next-apollo-client
+    restart: unless-stopped
+    image: next-apollo-client:1.0.0
+    build:
+      context: client
+      target: production
+      dockerfile: Dockerfile
+    environment:
+      - APOLLO_URI=http://172.18.0.2:8000/graphql
+    ports:
+      - 3000:3000
+    networks:
+      - shared-network
+    depends_on:
+      - server
+    links:
+      - server
+
+networks:
+  shared-network:
+    external: false

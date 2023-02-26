@@ -7,10 +7,10 @@
 - [x] Create a GraphQL Query and Resolver that will generate a dummy list of about 2000 names with their addresses, email and phone numbers. Feel free to use any fake data generator library, btw love https://www.npmjs.com/package/casual
 - [x] Create a New Page in Nextjs where you display these names and addresses as a grid of card tiles.  The page needs to be responsive.
 - [x] Implement Lazyloading  / Infinite scrolls so that  you load 20 cards each time you click a ‘Load More’ button, which you would need to create.  
-- [ ] Add Unit Tests using Jest and React Testing Library.
-- [ ] Dockerize the server and client app and use docker-compose so that we can run the app locally using docker-compose.
+- [x] Add Unit Tests using Jest and React Testing Library.
+- [x] Dockerize the server and client app and use docker-compose so that we can run the app locally using docker-compose.
+- [ ] Write cypress end 2 end tests for the page you created.
 - [ ] Deploy your App on Heroku. And send us a link to the app.
-- [ ] Write cypress end to end test for the page you created.
 
 ### Package Updates:
 I used npm-check-updates to help with this, as it's often safer than just manually upgrading. The following is the success message for the client:
@@ -67,10 +67,26 @@ I also took the liberty of updating the server too:
 - - I created a div which is a grid with 4 columns and iterated through every `employee`. I sent this `employee` data to the `Team Card` component to be rendered separately from our array map function.
 - - I added our load-more button and created a `handleOnClick` function which adds 20 more employees to the loadMoreLimit. I ensured to slice our array map from 0 to the limit in this state variable.
 - - I tweaked with some CSS and ensured it was fully responsive. 
-- After this i ensured I had 100% unit test code coverage and then started looking @ setting up docker. 
+- After this I ensured I had 100% unit test code coverage and then started looking @ setting up docker. 
 
 ### Unit Test 100% Code Coverage:
 ![Unit Test 100% Code Coverage](./assets/unit-test-coverage.png)
+
+### Docker Setup:
+- First I created a `Dockerfile` on the `client` and `server`. These files are pretty similar in shape, they simply:
+- - Set the `node` environment to `18.10`
+- - Add the environment variables.
+- - Set the work directory to `app/src/client` and `app/src/server` respectively.
+- - Copy the `package.json` and `yarn.lock` files.
+- - Install all package requirements and copy all files.
+- - Expose their respective ports.
+- - Safely execute running the images.
+- Then I worked on the `docker-compose.yml` file, this file basically tells docker how our full-stack app should run. The setup was simply to name the docker `images` and establish the `ports` to run on. There was some overlap between the Dockerfiles and the docker-compose via the environment variables but I always like redundancies.
+
+### Docker Setup Fully Working:
+![Docker Setup Fully Working](./assets/docker-preview.png)
+
+### Cypress E2E Setup:
 
 ### Additional Information:
 - I added a package.json to the project root, so I could add global prettier to dev dependencies for development.

@@ -2,7 +2,7 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 export const client = new ApolloClient({
-  ssrMode: typeof window === "undefined",
+  ssrMode: true,
   uri: process.env.APOLLO_URI,
   cache: new InMemoryCache(),
 });

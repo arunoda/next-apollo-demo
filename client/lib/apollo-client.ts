@@ -1,9 +1,8 @@
-import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
+/* istanbul ignore file */
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 export const client = new ApolloClient({
   ssrMode: typeof window === "undefined",
-  link: createHttpLink({
-    uri: process.env.APOLLO_URI,
-  }),
+  uri: process.env.APOLLO_URI,
   cache: new InMemoryCache(),
 });

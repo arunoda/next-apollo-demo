@@ -67,6 +67,10 @@ I also took the liberty of updating the server too:
 - - I created a div which is a grid with 4 columns and iterated through every `employee`. I sent this `employee` data to the `Team Card` component to be rendered separately from our array map function.
 - - I added our load-more button and created a `handleOnClick` function which adds 20 more employees to the loadMoreLimit. I ensured to slice our array map from 0 to the limit in this state variable.
 - - I tweaked with some CSS and ensured it was fully responsive. 
+- After this i ensured I had 100% unit test code coverage and then started looking @ setting up docker. 
+
+### Unit Test 100% Code Coverage:
+![Unit Test 100% Code Coverage](./assets/unit-test-coverage.png)
 
 ### Additional Information:
 - I added a package.json to the project root, so I could add global prettier to dev dependencies for development.

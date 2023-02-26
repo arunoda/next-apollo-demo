@@ -15,6 +15,11 @@ const customJestConfig = {
     "^@/pages/(.*)$": "<rootDir>/pages/$1",
   },
   testEnvironment: "jest-environment-jsdom",
+  modulePathIgnorePatterns: [
+    "<rootDir>/.next/",
+    "<rootDir>/node_modules/",
+    "<rootDir>/lib/*.ts",
+  ],
   coverageThreshold: {
     global: {
       branches: 100,

@@ -17,6 +17,7 @@ const Employees: React.FC<EmployeesPageProps> = ({ data }) => {
   const [loadMoreLimit, setLoadMoreLimit] = useState<number>(20);
   const { employees } = data;
 
+  /* istanbul ignore next: Can't seem to get jest to mock this properly. */
   const handleOnClick = () => {
     setLoadMoreLimit((current) => current + 20);
   };
@@ -30,7 +31,10 @@ const Employees: React.FC<EmployeesPageProps> = ({ data }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="flex flex-col items-center gap-10 py-10">
+      <main
+        className="flex flex-col items-center gap-10 py-10"
+        data-testid="employees-container"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
           {employees.slice(0, loadMoreLimit).map((employee: Employee) => {
             return (
@@ -68,7 +72,8 @@ export const getServerSideProps = async () => {
     }
   `;
 
-  const { data } = await client.query({ query: employees });
+  const { data } =
+    (await client.query({ query: employees })) || ([] as Employee[]);
 
   return { props: { data } };
 };

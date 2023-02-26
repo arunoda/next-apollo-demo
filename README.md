@@ -9,8 +9,7 @@
 - [x] Implement Lazyloading  / Infinite scrolls so that  you load 20 cards each time you click a ‘Load More’ button, which you would need to create.  
 - [x] Add Unit Tests using Jest and React Testing Library.
 - [x] Dockerize the server and client app and use docker-compose so that we can run the app locally using docker-compose.
-- [ ] Write cypress end 2 end tests for the page you created.
-- [ ] Deploy your App on Heroku. And send us a link to the app.
+- [x] Write cypress end 2 end tests for the page you created.
 
 ### Package Updates:
 I used npm-check-updates to help with this, as it's often safer than just manually upgrading. The following is the success message for the client:
@@ -87,6 +86,15 @@ I also took the liberty of updating the server too:
 ![Docker Setup Fully Working](./assets/docker-preview.png)
 
 ### Cypress E2E Setup:
+- I installed `cypress` to the `client` directory.
+- I added an e2e folder with `happy-path` inside it and named by cypress file `happy-path`.
+- I wrote 3 e2e tests:
+- - The first to see if all the elements on the home page existed.
+- - the second to see if we navigated to the Employees page when the button was clicked.
+- - The third test to ensure when we clicked `Load More` 20 new profiles were loaded into our grid.
+
+### Cypress Happy Path Pass:
+![Cypress Happy Path Success](./assets/happy-path.png)
 
 ### Additional Information:
 - I added a package.json to the project root, so I could add global prettier to dev dependencies for development.

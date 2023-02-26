@@ -14,8 +14,16 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",
+    "baseUrl": "."
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/**/*.ts", "**/**/*.tsx", "**/**/*.spec.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/**/*.ts",
+    "**/**/*.tsx",
+    "**/**/*.spec.tsx",
+    "node_modules/cypress/types/mocha/index.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

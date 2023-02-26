@@ -11,15 +11,11 @@ import bodyParser from "body-parser";
 import { typeDefs } from "./graphql/typeDefs";
 import { resolvers } from "./graphql/resolvers";
 
-interface ApolloServerProps {
-  token?: string;
-}
-
 const server = async () => {
   const app = express();
   const httpServer = http.createServer(app);
 
-  const server = new ApolloServer<ApolloServerProps>({
+  const server = new ApolloServer({
     typeDefs,
     resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],

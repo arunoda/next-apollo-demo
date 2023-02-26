@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { gql } from "@apollo/client";
 import { client } from "../../../lib/apollo-client";
 import Head from "next/head";
-import { Employee } from "@Components/entities/employee";
-import TeamCard from "@Components/components/team-card";
-import Button from "@Components/components/button";
-import Header from "@Components/components/header";
+import { Employee } from "../../entities/employee";
+import TeamCard from "../../components/team-card";
+import Button from "../../components/button";
+import Header from "../../components/header";
 
 interface EmployeesPageProps {
   data: {
@@ -14,7 +14,7 @@ interface EmployeesPageProps {
 }
 
 const Employees: React.FC<EmployeesPageProps> = ({ data }) => {
-  const [loadMoreLimit, setLoadMoreLimit] = useState(20);
+  const [loadMoreLimit, setLoadMoreLimit] = useState<number>(20);
   const { employees } = data;
 
   const handleOnClick = () => {
@@ -31,7 +31,7 @@ const Employees: React.FC<EmployeesPageProps> = ({ data }) => {
       </Head>
       <Header />
       <main className="flex flex-col items-center gap-10 py-10">
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
           {employees.slice(0, loadMoreLimit).map((employee: Employee) => {
             return (
               <div key={employee.id}>

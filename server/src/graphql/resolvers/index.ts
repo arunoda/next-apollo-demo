@@ -1,19 +1,5 @@
 import casual from "casual";
-
-type Employee = {
-  id: number;
-  firstName: String;
-  lastName: String;
-  email: String;
-  phoneNumber: String;
-  address: Address;
-};
-
-type Address = {
-  firstLine: String;
-  street: String;
-  city: String;
-};
+import { Employee } from "../../entities/employee";
 
 export const resolvers = {
   Query: {

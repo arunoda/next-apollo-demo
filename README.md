@@ -24,3 +24,5 @@
 3. Replaced `apollo-server-express` with `@apollo/server`
 4. Added `casual` and finished resolver with pagination support
 5. Cleaned up unnused files, Updated `.gitignore` and removed `.next` from repo
+6. Nothing worth salvaging from client app so deleted everything and `yarn create next app`
+7. Setup nextjs v14 with new app router

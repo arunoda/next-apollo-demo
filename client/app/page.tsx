@@ -1,5 +1,3 @@
-"use server";
-
 import { Suspense } from "react";
 import EmployeesList from "../components/EmployeesList";
 import LoadingCard from "../components/LoadingCard";

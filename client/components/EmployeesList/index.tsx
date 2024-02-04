@@ -5,7 +5,7 @@ import { gql, useQuery } from "@apollo/client";
 import EmployeeCard from "../EmployeeCard";
 import Pagination from "../Pagination";
 
-const GET_EMPLOYEES_QUERY = gql`
+export const GET_EMPLOYEES_QUERY = gql`
   query GetEmployees($skip: Int!, $limit: Int!) {
     employees(skip: $skip, limit: $limit) {
       id
@@ -21,7 +21,7 @@ const GET_EMPLOYEES_QUERY = gql`
   }
 `;
 
-const EmployeesList: React.FC = async () => {
+const EmployeesList = async () => {
   const ITEMS_PER_PAGE = 20;
   const [page, setPage] = useState(0);
   const { loading, error, data } = useQuery(GET_EMPLOYEES_QUERY, {
@@ -56,8 +56,6 @@ const EmployeesList: React.FC = async () => {
         isLastPage={isLastPage}
         handlePrev={() => handlePrev()}
         handleNext={() => handleNext()}
-        isDisabledPrev={page === 0}
-        isDisabledNext={isLastPage}
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
         {data.employees.map((employee) => (
@@ -80,8 +78,6 @@ const EmployeesList: React.FC = async () => {
         isLastPage={isLastPage}
         handlePrev={() => handlePrev()}
         handleNext={() => handleNext()}
-        isDisabledPrev={page === 0}
-        isDisabledNext={isLastPage}
       />
     </div>
   );

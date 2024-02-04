@@ -1,20 +1,16 @@
-import React from "react";
-
-// LoadingCard component with loading placeholders
-const LoadingCard: React.FC = () => {
+const LoadingCard = () => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg m-4 p-4 bg-white animate-pulse">
+    <div
+      className="max-w-sm rounded overflow-hidden shadow-lg m-4 p-4 bg-white animate-pulse"
+      data-testid="loading-card"
+    >
       <div className="px-6 py-4">
-        {/* Placeholder for Name */}
-        <div className="h-6 bg-gray-300 rounded w-3/4 mb-4"></div>
-        {/* Placeholder for Email */}
-        <div className="h-4 bg-gray-300 rounded w-full mb-2"></div>
-        {/* Placeholder for Phone Number */}
-        <div className="h-4 bg-gray-300 rounded w-full mb-2"></div>
-        {/* Placeholder for Address */}
+        <div className="h-6 bg-gray-300 rounded w-3/4 mb-4" data-testid="placeholder"></div>
+        <div className="h-4 bg-gray-300 rounded w-full mb-2" data-testid="placeholder"></div>
+        <div className="h-4 bg-gray-300 rounded w-full mb-2" data-testid="placeholder"></div>
         <div className="mt-4">
-          <div className="h-4 bg-gray-300 rounded w-5/6 mb-2"></div>
-          <div className="h-4 bg-gray-300 rounded w-5/6"></div>
+          <div className="h-4 bg-gray-300 rounded w-5/6 mb-2" data-testid="placeholder"></div>
+          <div className="h-4 bg-gray-300 rounded w-5/6" data-testid="placeholder"></div>
         </div>
       </div>
     </div>

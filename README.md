@@ -8,7 +8,7 @@
 [x] Create a GraphQL Query and Resolver that will generate a dummy list of about 2000 names with their addresses, email and phone numbers. Feel free to use any fake data generator library, btw love https://www.npmjs.com/package/casual 
 [x] Create a New Page in Nextjs where you display these names and addresses as a grid of card tiles. The page needs to be responsive. 
 [x] Implement Lazyloading / Infinite scrolls so that you load 20 cards each time you click a ‘Load More’ button, which you would need to create. 
-[] Add Unit Tests using Jest and React Testing Library. 
+[x] Add Unit Tests using Jest and React Testing Library. 
 [] Dockerize the server and client app and use docker-compose so that we can run the app locally using docker-compose. Bonus Task. 
 
 [] Deploy your App on Heroku. And send us a link to the app. 

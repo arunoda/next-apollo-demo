@@ -23,3 +23,4 @@
 2. Removed faker
 3. Replaced `apollo-server-express` with `@apollo/server`
 4. Added `casual` and finished resolver with pagination support
+5. Cleaned up unnused files, Updated `.gitignore` and removed `.next` from repo

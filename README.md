@@ -26,3 +26,4 @@
 5. Cleaned up unnused files, Updated `.gitignore` and removed `.next` from repo
 6. Nothing worth salvaging from client app so deleted everything and `yarn create next app`
 7. Setup nextjs v14 with new app router
+8. Added `@tailwind` support

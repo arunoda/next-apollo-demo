@@ -1,7 +1,8 @@
-const Pagination = ({ isFirstPage, isLastPage, handlePrev, handleNext, isDisabledPrev, isDisabledNext }) => {
+const Pagination = ({ isFirstPage, isLastPage, handlePrev, handleNext }) => {
   return (
     <div className="flex justify-between items-center">
       <button
+        role="button"
         className={`bg-blue-500 ml-3 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
           isFirstPage ? "opacity-50 cursor-not-allowed" : ""
         }`}
@@ -11,6 +12,7 @@ const Pagination = ({ isFirstPage, isLastPage, handlePrev, handleNext, isDisable
         Previous
       </button>
       <button
+        role="button"
         className={`bg-blue-500 mr-3 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
           isLastPage ? "opacity-50 cursor-not-allowed" : ""
         }`}

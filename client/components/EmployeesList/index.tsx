@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { gql, useQuery } from "@apollo/client";
-import EmployeeCard from "../components/EmployeeCard";
-import Pagination from "../components/Pagination";
+import EmployeeCard from "../EmployeeCard";
+import Pagination from "../Pagination";
 
 const GET_EMPLOYEES_QUERY = gql`
   query GetEmployees($skip: Int!, $limit: Int!) {

@@ -29,3 +29,4 @@
 8. Added `@tailwind` support
 9. Added Apollo-Client
 10. Added Pagination Support
+11. Added Suspense with LoadingCard

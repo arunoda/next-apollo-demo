@@ -21,7 +21,7 @@ const GET_EMPLOYEES_QUERY = gql`
   }
 `;
 
-const EmployeesList: React.FC = () => {
+const EmployeesList: React.FC = async () => {
   const ITEMS_PER_PAGE = 20;
   const [page, setPage] = useState(0);
   const { loading, error, data } = useQuery(GET_EMPLOYEES_QUERY, {

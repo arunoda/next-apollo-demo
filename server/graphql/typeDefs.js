@@ -1,6 +1,6 @@
 export const typeDefs = `#graphql
 type Query {
-    employees: [Employee]
+    employees(skip: Int, limit: Int): [Employee]
 }
 
 type Employee {

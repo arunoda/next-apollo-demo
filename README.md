@@ -36,7 +36,7 @@
 * `cd server`
 * `heroku container:login`
 * `heroku apps:create next-apollo-client`
-* `heroku config:set API_URI=https:// -a next-apollo-client`
+* `heroku config:set NEXT_PUBLIC_API_URI=https://example -a next-apollo-client`
 * `heroku container:push web -a next-apollo-client`
 * `heroku container:release web -a next-apollo-client`
 * `heroku open -a next-apollo-client`

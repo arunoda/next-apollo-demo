@@ -14,7 +14,9 @@ services:
       - 5000:5000
     networks:
       - user-network
-  
+    environment:
+      - PORT=5000
+
   web:
     container_name: web
     restart: unless-stopped
@@ -32,7 +34,8 @@ services:
     links:
       - server
     environment:
-      - API_URI=http://server/graphql
+      - PORT=3000    
+      - API_URI=http://localhost:5000/graphql
 
 networks:
   user-network:

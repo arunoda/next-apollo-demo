@@ -34,13 +34,19 @@
 ### Heroku Deployment steps
 
 * `cd server`
+* `heroku container:push web -a apollo-api-server`
+* `heroku container:release web -a apollo-api-server`
+* `heroku open -a apollo-api-server`
+
+* `cd client`
 * `heroku container:login`
 * `heroku apps:create next-apollo-client`
-* `heroku config:set NEXT_PUBLIC_API_URI=https://example -a next-apollo-client`
+* `heroku config:set NEXT_PUBLIC_API_URI=https://apollo-api-server-61f4b28f3af6.herokuapp.com/ -a next-apollo-client`
 * `heroku container:push web -a next-apollo-client`
 * `heroku container:release web -a next-apollo-client`
 * `heroku open -a next-apollo-client`
 
 ### Debugging and logs
 * `heroku run bash -a next-apollo-client`
+* `heroku logs --tail -a next-apollo-client`
 * `heroku logs:drains -a next-apollo-client`

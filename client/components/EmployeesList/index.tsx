@@ -3,13 +3,28 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 
+import { GET_EMPLOYEES_QUERY } from "../../gql/GetEmployees";
+
+import LoadingCard from "../LoadingCard";
 import EmployeeCard from "../EmployeeCard";
 import Pagination from "../Pagination";
 
-import { GET_EMPLOYEES_QUERY } from "../../gql/GetEmployees";
+const ITEMS_PER_PAGE = 21;
 
-const EmployeesList = async () => {
-  const ITEMS_PER_PAGE = 20;
+const LoadingState = () => {
+  return (
+    <div className="mx-auto max-w-screen-lg px-4">
+      <Pagination isFirstPage={true} isLastPage={true} handlePrev={() => null} handleNext={() => null} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+        <LoadingCard />
+        <LoadingCard />
+        <LoadingCard />
+      </div>
+    </div>
+  );
+};
+
+const EmployeesList = () => {
   const [page, setPage] = useState(0);
   const { loading, error, data } = useQuery(GET_EMPLOYEES_QUERY, {
     variables: {
@@ -23,7 +38,7 @@ const EmployeesList = async () => {
   const isFirstPage = page === 0;
   const isLastPage = data && data.employees.length < ITEMS_PER_PAGE;
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <LoadingState />;
   if (error) return <div>Error! {error.message}</div>;
 
   const handlePrev = () => {

@@ -10,7 +10,7 @@ COPY . .
 
 RUN yarn build
 
-ENV API_URI http://localhost:5000/graphql
+ENV NEXT_PUBLIC_API_URI http://localhost:5000/graphql
 
 # needed only for heroku
 ENV PORT 80

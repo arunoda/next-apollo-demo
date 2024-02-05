@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+
+  server:
+    container_name: server
+    restart: unless-stopped
+    image: api-server:1.0
+    build:
+      context: server
+      target: prod
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    networks:
+      - user-network
+    environment:
+      - PORT=5000
+
+  web:
+    container_name: web
+    restart: unless-stopped
+    image: web-client:1.0
+    build:
+      context: client
+      target: prod
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - user-network
+    depends_on:
+      - server
+    links:
+      - server
+    environment:
+      - PORT=3000    
+      - API_URI=http://localhost:5000/graphql
+
+networks:
+  user-network:
+    external: false

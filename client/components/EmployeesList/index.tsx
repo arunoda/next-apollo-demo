@@ -1,25 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+
 import EmployeeCard from "../EmployeeCard";
 import Pagination from "../Pagination";
 
-export const GET_EMPLOYEES_QUERY = gql`
-  query GetEmployees($skip: Int!, $limit: Int!) {
-    employees(skip: $skip, limit: $limit) {
-      id
-      firstName
-      lastName
-      email
-      phoneNumber
-      address {
-        streetAddress
-        city
-      }
-    }
-  }
-`;
+import { GET_EMPLOYEES_QUERY } from "../../gql/GetEmployees";
 
 const EmployeesList = async () => {
   const ITEMS_PER_PAGE = 20;

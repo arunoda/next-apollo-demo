@@ -1,33 +1,18 @@
 import { Suspense } from "react";
 
-import { gql } from "@apollo/client";
-import { getClient } from "../lib/apollo-client";
-
 import EmployeesList from "../components/EmployeesList";
 import LoadingCard from "../components/LoadingCard";
 
+import { GET_EMPLOYEES_QUERY } from "../gql/GetEmployees";
+
 export default async function Page() {
-  const { data } = await getClient().query({
-    query: gql`
-      query GetEmployees($skip: Int!, $limit: Int!) {
-        employees(skip: $skip, limit: $limit) {
-          id
-          firstName
-          lastName
-          email
-          phoneNumber
-          address {
-            streetAddress
-            city
-          }
-        }
-      }
-    `,
-    variables: {
-      skip: 10,
-      limit: 10,
-    },
-  });
+  // const { data } = await getClient().query({
+  //   query: GET_EMPLOYEES_QUERY,
+  //   variables: {
+  //     skip: 10,
+  //     limit: 10,
+  //   },
+  // });
 
   return (
     <main>

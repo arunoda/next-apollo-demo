@@ -11,7 +11,7 @@
 * [x] Add Unit Tests using Jest and React Testing Library. 
 * [x] Dockerize the server and client app and use docker-compose so that we can run the app locally using docker-compose. Bonus Task. 
 * [x] Deploy your App on Heroku. And send us a link to the app. 
-* [] Write cypress end to end test for the page you created.
+* [x] Write cypress end to end test for the page you created.
 
 
 ## Notes
@@ -40,7 +40,7 @@
 * `cd client`
 * `heroku container:login`
 * `heroku apps:create next-apollo-client`
-* `heroku config:set NEXT_PUBLIC_API_URI=https://apollo-api-server-61f4b28f3af6.herokuapp.com/ -a next-apollo-client`
+* `heroku config:set NEXT_PUBLIC_API_URI=https://apollo-api-server-61f4b28f3af6.herokuapp.com/graphql -a next-apollo-client`
 * `heroku container:push web -a next-apollo-client`
 * `heroku container:release web -a next-apollo-client`
 * `heroku open -a next-apollo-client`

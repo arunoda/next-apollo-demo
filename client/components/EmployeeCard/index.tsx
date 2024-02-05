@@ -1,21 +1,18 @@
 import React from "react";
 
-// TODO: Bring this back with ts-lint support
-// Define the type for your props
-// type EmployeeCardProps = {
-//   id: number;
-//   firstName: string;
-//   lastName?: string;
-//   email: string;
-//   phoneNumber: string;
-//   address?: {
-//     streetAddress?: string;
-//     city?: string;
-//   };
-// };
+type EmployeeCardProps = {
+  id: number;
+  firstName: string;
+  lastName?: string;
+  email: string;
+  phoneNumber: string;
+  address?: {
+    streetAddress?: string;
+    city?: string;
+  };
+};
 
-// Use the type in your component
-const EmployeeCard = ({ id, firstName, lastName, email, phoneNumber, address }) => {
+const EmployeeCard: React.FC<EmployeeCardProps> = ({ id, firstName, lastName, email, phoneNumber, address }) => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg m-4 p-4 bg-white" title={`Employee ID: ${id}`}>
       <div className="px-6 py-4">
